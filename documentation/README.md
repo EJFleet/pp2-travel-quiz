@@ -19,9 +19,8 @@ View [Holiday Budget Tracker](https://github.com/EJFleet/pp3_holiday_budget_trac
   * [User Stories](#user-stories)
 
 * [Design](#design)
-  
+  * [Flowchart](#flowchart)
   * [Imagery](#imagery)
-  * [Wireframes](#wireframes)
  
 * [Features](#features)
   * [Header](#header)
@@ -84,48 +83,12 @@ I want to
 
 ## Design
 
-### Imagery
+### Flowchart
 
+Before starting to code, I designed a flowchart with [Lucid](www.lucid.app) to visualise how a user would move through the app and to break down exactly what needed to be done.
 
+![Flowchart](documentation/pp3-flow-chart.png)
 
-### Wireframes
-
-
-#### Mobile
-
-<details >
-<summary>Home and Resumé</summary>  
-
-![homepage and resumé wireframe-mobile](documentation/wireframes/jf-home-and-resume-mobile-wireframe.webp)
-</details> 
-<details >
-<summary>Reel and Gallery</summary>  
-
-![reel and gallery-mobile](documentation/wireframes/jf-reel-and-gallery-phone-wireframe.webp)
-</details> 
-<details >
-<summary>Contact Form</summary>  
-
-![contact form-mobile](documentation/wireframes/jf-contact-form-mobile-wireframe.webp)
-</details> 
-
-#### Desktop
-
-<details >
-<summary>Home and Resumé</summary>  
-
-![homepage and resumé wireframe-desktop](documentation/wireframes/jf-home-and-resume-desktop-wireframe.webp)
-</details> 
-<details >
-<summary>Reel and Gallery</summary>  
-
-![reel and gallery-desktop](documentation/wireframes/jf-reel-and-gallery-desktop-wireframe.webp)
-</details> 
-<details >
-<summary>Contact Form</summary>  
-
-![contact form-desktop](documentation/wireframes/jf-contact-form-desktop-wireframe.webp)
-</details> 
 
 
 ## Features
