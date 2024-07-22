@@ -2,11 +2,12 @@
 
 ## Intro
 
-For my third portfolio project, I created an app to track the spending and budget for a user's holiday. 
+For my third portfolio project, I created an app to track the budget and spending for a user's holiday. 
 
-![Screenshots of Holiday Budget Tracker on different devices]()
+![Screenshot of welcome page of Holiday Budget Tracker]()
 
-View [Holiday Budget Tracker](https://github.com/EJFleet/pp3_holiday_budget_tracker) on Github.
+Visit the deployed site here: [Holiday Budget Tracker]()
+View Holiday Budget Tracker on [Github](https://github.com/EJFleet/pp3_holiday_budget_tracker)
 
 ![GitHub last commit]()![GitHub language count]()![GitHub top language]()![W3C Validation]()
 
@@ -19,17 +20,13 @@ View [Holiday Budget Tracker](https://github.com/EJFleet/pp3_holiday_budget_trac
   * [User Stories](#user-stories)
 
 * [Design](#design)
-  * [Flowchart](#flowchart)
-  * [Imagery](#imagery)
+  * [Planning](#planning)
+    * [Flowchart](#flowchart)
+    * [Google API Setup](#google-api-setup)
+    * [Google Sheets](#google-sheets)
  
 * [Features](#features)
-  * [Header](#header)
-  * [Footer](#footer)
-  * [Favicon](#favicon)
-  * [About](#about)
-  * [Resumé](#resume)
-  * [Gallery](#gallery)
-  * [Contact Form](#contact-form)
+  * 
   * [Future Implementations](#future-implementations)
   * [Accessibility](#accessibility)
 
@@ -38,22 +35,24 @@ View [Holiday Budget Tracker](https://github.com/EJFleet/pp3_holiday_budget_trac
   * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 
 * [Deployment & Local Development](#deployment--local-development)
-  * [Deployment](#deployment)
-  * [Local Development](#local-development)
-    * [How to Fork](#how-to-fork)
-    * [How to Clone](#how-to-clone)
+  * [Creating a New Repository](#creating-a-new-repository)
+  * [Activating the Google Drive & Sheets API](#activating-the-google-drive--sheets-api)
+  * [Setting up the Gitpod Workspace for the APIs](#setting-up-the-gitpod-workspace-for-the-apis)
+  * [Initial Code for connecting to our API with Python](#initial-code-for-connecting-to-our-api-with-python)
+  * [Deploying to Heroku](#deploying-to-heroku)
+  * [How to Fork](#forking-the-github-repository)
+  * [How to Clone](#clone-this-github-repository)
 
 * [Testing](#testing)
   * [Functionality](#functionality)
   * [Browser Compatibility](#browser-compatibility)
   * [Responsiveness](#responsiveness)
-  * [HTML and CSS Validation](#html-and-css-validation)
+  * [Code Validation](#code-validation)
   * [Solved Bugs](#solved-bugs)
 
 * [Credits](#credits)
   * [Code Used](#code-used)
   * [Content](#content)
-  * [Media](#media)
   * [Acknowledgments](#acknowledgments)
 
 ---
@@ -83,82 +82,22 @@ I want to
 
 ## Design
 
-### Flowchart
+### Planning
+
+#### Flowchart
 
 Before starting to code, I designed a flowchart with [Lucid](www.lucid.app) to visualise how a user would move through the app and to break down exactly what needed to be done.
 
-![Flowchart](documentation/pp3-flow-chart.png)
+![Flowchart](/documentation/pp3-flow-chart.png)
 
+#### Google API Setup
+
+#### Google Sheets
 
 
 ## Features
 
 
-
-### Header
-
-#### Mobile
-![Header for mobile](documentation/feature-screenshots/joan-fleetwood-header-mobile.png)
-
-#### Desktop
-![Header for desktop](documentation/feature-screenshots/joan-fleetwood-header-full.png)
-
-
-### Footer
-
-#### Mobile
-![Footer for mobile](documentation/feature-screenshots/joan-fleetwood-footer-mobile.png)
-
-#### Desktop
-![Footer for desktop](documentation/feature-screenshots/joan-fleetwood-footer-desktop.png)
-
-The footer contains links to Joan's social media, using icons from [FontAwesome](https://fontawesome.com/).  There are also contact details for her acting agency and a line that credits me as the designer and links to my GitHub.
-
-As with the header, the footer stretches across the whole screen to give a framing effect.
-
-### Favicon
-
-![Favicon](documentation/feature-screenshots/joan-fleetwood-favicon-screenshot.png)
-
-The favicon for the site was created using [favicon.io](https://favicon.io/favicon-generator/) and uses the pink and black colours from the site's colour scheme.
-
-### About
-
-The About section is divided into two divs, which appear side-by-side on tablet-size screens (768px and larger).
-
-#### Main Image
-
-![Main Image](documentation/feature-screenshots/joan-fleetwood-main-image.png)
-
-This photo of Joana was chosen as it is striking yet simple with no background clutter.
-
-#### About Me section
-
-![About Me](documentation/feature-screenshots/joan-fleetwood-about-me.png)
-
-This is divided into two divs which always appear on top of each other.  The About Me paragraph is a short summary of Joan's appearance and experience.  Underneath is her Showreel, which gives an audiovisual display of her work.
-
-### Resumé
-
-![Resumé](documentation/feature-screenshots/joan-fleetwood-resume.png)
-
-The Resumé section details Joan's extensive experience.  It is displayed as one column on screens smaller than 576px and as three columns on larger screens.
-
-### Gallery
-
-![Gallery](documentation/feature-screenshots/joan-fleetwood-gallery.png)
-
-The Gallery contains snapshots of Joan in various acting and modelling roles.  It will display as 1-4 columns depending on the screen size.
-
-### Contact Form
-
-#### Mobile
-![Contact Form for Mobile](documentation/feature-screenshots/joan-fleetwood-contact-form-mobile.png)
-
-#### Desktop
-![Contact Form for Desktop](documentation/feature-screenshots/joan-fleetwood-contact-form-desktop.png)
-
-The Contact Form has an icon of a clapperboard and a background of studio lights to emphasise the connection between Joan and the acting world.
 
 
 ### Future Implementations
@@ -166,20 +105,12 @@ The Contact Form has an icon of a clapperboard and a background of studio lights
 
 ### Accessibility
 
-I have tried to make the site as accessible as possible.  Steps that I have been conscious to take are:
-
-* Using semantic HTML
-* Choosing fonts that are dyslexia-friendly
-* Using descriptive alt attributes on all images 
-* Providing aria-labels for screen readers where there are icons used and no text, i.e. the social media icons in the footer
-* Ensuring that there is a sufficient colour contrast throughout the site
-
 
 ## Technologies Used
 
 ### Languages Used
 
-HTML and CSS were the main languages used to build this site.  There is also one line of JavaScript in the head section of the HTML, which is used to display the icons from fontawesome.com.
+
 
 ### Frameworks, Libraries & Programs Used
 
@@ -189,61 +120,134 @@ Github - To save and store the files for the website.
 
 Gitpod - For developing the site.
 
-Google Fonts - To import the fonts used on the website.
-
-Font Awesome - For the iconography on the website.
-
-Google Dev Tools - To troubleshoot and test features, solve issues with responsiveness and styling.
-
-Lighthouse - Chrome extension used to assess accessibility.
-
 [Shields.io](https://shields.io/) for adding badges to the readme.
-
-[Favicon.io](https://favicon.io/favicon-generator/) for creating a custom favicon.
-
-[Achecks.org](https://www.achecks.org/apca-wcag-3-accessible-colour-contrast-checker/) for checking the colour contrast for accessibility.
-
-[Coolors.co](https://coolors.co) for creating a colour scheme.
-
-[Deque Univerity](https://dequeuniversity.com/rules/axe/4.8/color-contrast) for adjusting colours to meet accessibility standards.
 
 [Beautifier.io](https://beautifier.io/) to format the site's code.
 
 
-## Deployment & Local Development
+##  Deployment & Local Development    
+  
+The below steps to creating and setting up a new Python workspace and API credentials has been guided by and adapted from the [Code Institute's](https://codeinstitute.net/ie/) Python walkthrough project 'Love Sandwiches'. Please check each step is relevant to your project needs and change the data entered to suit it.
 
-### Deployment
+### Creating a new repository 
+<details open>
+<summary>Steps to create a new repository.</summary>  
 
-The site is deployed using GitHub Pages - [Joan Fleetwood | Actor | Model](https://ejfleet.github.io/joan-fleetwood-actor/).
+The [Code Institute's Python Essential Template](https://github.com/Code-Institute-Org/python-essentials-template) was used to create a terminal for my Python file to generate it's output. To use this template, please follow these steps:
+1. Log in to [GitHub](https://github.com/) or create a new account.
+2. Navigate to the above Python template repository.
+3. Click '**Use this template**' -> '**Create a new repository**'.
+4. Choose a new repository name and click '**Create repository from template**'.
+5. In your new repository space, click the green '**Gitpod**' button to generate a new workspace.   
 
-To Deploy the site using GitHub Pages:
+</details> 
+  
+-----  
 
-1. Login (or signup) to Github.
-2. Go to the repository for this project, [EJFleet/joan-fleetwood-actor](https://github.com/EJFleet/joan-fleetwood-actor).
-3. Click the settings button.
-4. Select pages in the left hand navigation menu.
-5. From the source dropdown select main branch and press save.
-6. The site has now been deployed, please note that this process may take a few minutes before the site goes live.
+### Activating the Google Drive & Sheets API
+<details>
+<summary>Steps to activate the APIs</summary>
+To access the data in a Google Sheets worksheet using Python code, an API is required. Please follow these steps to set up your APIs:  
 
-### Local Development
+1. Navigate to the [Google Cloud Platform](https://cloud.google.com), using an email address/Google account that is registered to you alone.
+2. In the Google Cloud Platform Dashboard, create a new project by clicking on the '**Select a Project**' button and choosing the '**New Project**' option. Give your new project a name and click '**Create**'. (Your access credentials are unique to each project, so create a new project for every project that you build.) 
+3. Click '**Select Project**' in the blue banner to bring you to your project page.
+4. Select '**APIs and Services**' from the left side menu, then select '**Library**'.
+5. Use the search bar to search for the two APIs needed for this project, Google Drive API and Google Sheets API. One at time, choose the APIs from the search and click '**Enable**' on their main page. Follow the below steps for the Google Drive API, but only click '**Enable**' for the Google Sheets API. There is no need to download credentials again for it.
+6. On the API overview page, click '**Create Credentials**' to generate some credentials which will allow us access to our Google Drive from our Python code.
+7. Fill out the forms fields and dropdown menus with the information that is relevant to your project. For mine, I chose **Google Drive API -> Application Data -> No, I'm not using them** (regarding using Kubernetes, App Engine etc)
+8. Under Service Account Details, choose a Service Account name and click '**Create**'.
+9. In the Role Dropdown box choose **Basic -> Editor** then press '**Continue**'. Click '**Done**' to finish the form if you do not need to grant users access to the service account if it is a personal project.
+10. On the next page, click on your new Service Account that has been created, then click on the '**Keys**' tab to '**Add Key**'. Select '**Create New Key**'.
+11. Select JSON and '**Create**'. Your json file containing your API credentials will be downloaded to your machine.
 
-#### How to Fork
+</details>
 
-To fork the repository:
+-----  
 
-1. Log in or sign up to [Github](https://github.com/).
-2. Go to the repository for this project, [EJFleet/joan-fleetwood-actor](https://github.com/EJFleet/joan-fleetwood-actor).
-3. Click the Fork button in the top right corner.
+### Setting up the Gitpod workspace for the APIs
+<details>
+<summary>Steps for workspace setup</summary>
+  
+1. In the new Gitpod workspace you've created with the Python Essentials template, click and drag the json file that you created in the above steps, into the Gitpod workspace.  
+2. Rename it to `CREDS.json`, if you wish, and open the file. Find the client_email address you previously entered, copy it without the quotes around it.
+3. In the Google Sheets file that you have created for this project, click the '**Share**' button and paste the email address into the field, choose '**Editor**', untick '**Notify People**' and click '**Share**'. This allows our project access to the spreadsheet.
+4. To ensure the private credentials that you have created do not make their way to the cloud for others to view, add the `creds.json` file to your `gitignore` file before you commit any changes to your repository, and push them to the cloud.
+5. Use the command `git status` to check that the `creds.json` file is not staged to be committed.
 
-#### How to Clone
+</details>  
+  
+-----  
 
-To clone the repository:
+### Initial Code for connecting to our API with Python
+<details>
+<summary>Steps to including the Python/API connection code</summary>
 
-1. Log in or sign up to [Github](https://github.com/).
-2. Go to the repository for this project, [EJFleet/joan-fleetwood-actor](https://github.com/EJFleet/joan-fleetwood-actor).
-3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
-4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
-5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+1. The code needed to ensure your APIs connect correctly can be found at the top of the `run.py` file connected to this project. It is important that you remember to pass the exact same name as your spreadsheet to the `SHEET = GSPREAD_CLIENT.opn('your-filename-here')` code, or else gspread will throw an error.
+2. The command `pip3 install gspread google-auth` is needed to install the gspread package for handling the worksheet data and the google-auth package to allow access to the Google Sheets account via the Credentials we downloaded earlier. Use the above command in the Gitbash terminal to install.
+3. Please refer to the `run.py` file for the import, SCOPE, CREDS, SCOPED CREDS, GSPREAD CLIENT, SHEET code that is needed to connect the APIs and change any data that is personal to your project.
+
+</details>
+  
+-----  
+
+### Deploying to Heroku  
+
+Heroku has been used to deploy this project as Python is used as a back-end language. To allow for accurate testing, I deployed the project to Heroku early on using Automatic Deployment to update the program everytime new code was pushed to my GitHub repository. Here are the steps that I followed to set my project up, guidance was provided by the [Code Institute's](https://codeinstitute.net/ie/) 'Love Sandwiches' project.     
+
+1. Log in to [Heroku](https://id.heroku.com/login) or create an account if you are a new user.
+2. Once logged in, in the Heroku Dashboard, navigate to the '**New**' button in the top, right corner, and select '**Create New App**'.
+<details>
+<summary>Create new app</summary>
+<img src ="documentation/readme/heroku_1.png">
+</details>  
+
+3. Enter an app name and choose your region. Click '**Create App**'.
+<details>
+<summary>Enter app name</summary>
+<img src ="documentation/readme/heroku_2.png">
+</details>  
+  
+4. In the Deploy tab, click on the '**Settings**', reach the '**Config Vars**' section and click on '**Reveal Config Vars**'. Here you will enter KEY:VALUE pairs for the app to run successfully. In KEY enter `CREDS`, in VALUE, paste in the text content of your `CREDS.json` file. Select '**Add**'.  
+5. Repeat this process with a KEY:VALUE pair of `PORT` and `8000`.
+6. In the Settings tab, in the Buildpack section, click '**Add Buildpack**', located near the bottom, right of the refreshed screen. One at a time, choose the '**Python**' pack, save changes, then choose the '**NodeJS**' buildpack and save changes. **NB: the Python buildpack _must_ be above the NodeJS buildpack.**
+  
+<details>
+<summary>Choose Buildpacks</summary>
+<img src ="documentation/readme/heroku_bp.png">
+</details>  
+  
+7. Go to the '**Deploy**' tab and choose GitHub as the Deployment method.
+8. Search for the repository name, select the branch that you would like to build from, and connect it via the '**Connect**' button.
+9. Choose from '**Automatic**' or '**Manual**' deployment options, I chose the 'Automatic' deployment method. Click '**Deploy Branch**'.
+10. Once the waiting period for the app to build has finished, click the '**View**' link to bring you to your newly deployed site.
+
+  
+-----  
+
+### Forking the GitHub Repository
+
+A copy of the original repository can be made through GitHub. Please follow the below steps to fork this repository:  
+
+1. Navigate to GitHub and log in.  
+2. Once logged in, navigate to this repository using this link [Holiday Budget Tracker Repository](https://github.com/EJFleet/pp3_holiday_budget_tracker).
+3. Above the repository file section and to the top, right of the page is the '**Fork**' button, click on this to make a fork of this repository.
+4. You should now have access to a forked copy of this repository in your Github account.
+
+-----  
+
+### Clone this GitHub Repository
+
+A local clone of this repository can be made on GitHub. Please follow the below steps:
+
+1. Navigate to GitHub and log in.
+2. The [Holiday Budget Tracker Repositiory](https://github.com/EJFleet/pp3_holiday_budget_tracker) can be found at this location.
+3. Above the repository file section, locate the '**Code**' button.
+4. Click on this button and choose your clone method from HTTPS, SSH or GitHub CLI, copy the URL to your clipboard by clicking the '**Copy**' button.
+5. Open your Git Bash Terminal.
+6. Change the current working directory to the location you want the cloned directory to be made.
+7. Type `git clone` and paste in the copied URL from step 4.
+8. Press '**Enter**' for the local clone to be created.
 
 ## Testing
 
@@ -251,14 +255,7 @@ To clone the repository:
 
 |Test Label|Test Action|Expected Outcome|Test Outcome|
 |-----|-----|-----|-----|
-|Hamburger menu|Click on hamburger icon in mobile view|Navigation menu drops down|PASS|
-|Navigation links|Click on nav links in the header|Site scrolls to appropriate section|PASS|
-|Showreel display|Click play button on the showreel video|Video plays in-page|PASS|
-|Resumé links|Click links within Resumé|Correct link opens in a new tab|PASS|
-|Contact form|Fill in form and press submit|Error messages show if text missing from any box|PASS|
-|Contact form email|Enter string without @ symbol in email box|Error message to say email not correctly formatted|PASS|
-|Contact form POST|Fill in form and press submit|Form submits to CI formdump with all four fields showing the information populated|PASS|
-|Footer links|Click each icon in footer|Correct social media site opens in new tab|PASS|
+
 
 ### Browser Compatibility
 
@@ -279,91 +276,31 @@ The site was tested on the following devices:
 * 15.6" Laptop
 * Desktop PC
 
-It was extensively tested in Chrome Dev Tools for responsiveness from 300px - 5000px.
 
-### HTML and CSS Validation
+### Code Validation
 
-I used the W3C Markup Validator and W3C CSS Validator to validate the site and to ensure there were no syntax errors contained therein.
+The code was validated using PEP8 standards to ensure readability and maintainability.
 
-#### HTML
-
-The site initially failed the validation as there were two issues - both related to using HTML rather than CSS for styling. These were fixed easily by using deleting the relevant HTML and using CSS instead.
-
-![HTML fail](documentation/testing/joan-fleetwood-w3c-html-validation-fail-28.4.24.png)
-
-
-The site now passes the HTML Validation test.
-
-![HTML pass](documentation/testing/joan-fleetwood-html-checker-pass.png)
-
-
-#### CSS
-
-The site initially failed the validation as there was one issue - this was easily fixed by changing padding-top to padding in one of the elements. 
-
-![CSS fail](documentation/testing/joan-fleetwood-w3c-css-validation-fail-29.4.24.png)
-
-The site now passes the CSS Validation test.
-
-![CSS pass](documentation/testing/joan-fleetwood-css-checker-pass.png)
-
-
-### Lighthouse
-
-I used the Chrome extension Lighthouse to test the site, particularly for Performance and Accessibility.  Results below.
-
-![Lighthouse results](documentation/testing/joan-fleetwood-lighthouse-webp.webp)
+![Python pass]()
 
 
 ### Solved Bugs
-
-* The original colour scheme for the site used a lighter pink than the current one.  When I tested it on the [achecks.org](https://www.achecks.org/apca-wcag-3-accessible-colour-contrast-checker/) accessibility tester, this colour caused the site to fail as it did not provide enough contrast on the smaller headings or on the 'submit' button against the grey background.  I used [Deque Univerity;s site](https://dequeuniversity.com/rules/axe/4.8/color-contrast) to find a different shade of the pink colour that would meet accessibility standards.  I also changed the font-weight of the headers to make them easier to read.  These measures solved the issue.
-
-* I had difficulty moving the hamburger menu item into the position it has now.  I tried to use every combination of padding and margin to achieve this but I was unsuccessful.  My mentor Brian Macharia instructed me in changing the background colour of the divs to red to be able to see what was happening.  It turned out that I had set the {align-items} value to baseline rather than center, which was the source of all the issues.  The hamburger menu icon is now where I want it to be.
-
-* I initially used <br> elements for spacing in the index.html, which was pointed out by my mentor as it would mean failing the W3C validation on testing.  I removed these and used CSS to achieve the desired result instead.
 
 ## Credits
 
 ### Code Used
 
-[Kera Cudmore README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) for examples of what to include in the README sections.
+[Amy Lour README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) for examples of what to include in the README sections.
 
-Code Institute 'Love Running' walkthrough project for the hamburger navigation menu, the gallery and the footer.
+Code Institute 'Love Sandwiches' walkthrough project.
 
 Code Institute's sample README for ideas of what to put in each section.
  
-[Stack Overflow](https://stackoverflow.com/questions/11501025/div-anchors-scrolling-too-far) and [CSS-Tricks](https://css-tricks.com/hash-tag-links-padding/) for the code to add top margin to the section elements following a scroll event, to compensate for the fixed header.
-
-[W3C Schools](https://www.w3schools.com/css/css3_variables.asp) for the code to use variables in CSS.
-
-[Tapas Adhikary](https://github.com/atapas/markdown-cheatsheet) for his markdown cheatsheet.
-
-Traversy Media for their [Flexbox Crash Course](https://youtu.be/3YW65K6LcIA?si=muQloPSlDEk8zo3J) video.
-
 ### Content
 
-Content for the website was provided by Joan Fleetwood.  The About Me paragraph was edited by Emma Fleetwood.
-
-### Media
-
-#### Main Image and Gallery Images
-
-All images were provided by Joan Fleetwood.
-
-#### Showreel Video
-
-This video was downloaded from Joan's [Vimeo account](https://vimeo.com/user14640532).
-
-#### Background Image for Contact Form
-
-The image of studio lights on a plain grey background was downloaded from [iStock.com](https://istock.com).
   
 ### Acknowledgments
 
 * My mentor Brian Macharia for his help and clear explanations of what needed to be done
 * Amy Richardson for facilitating our weekly standups and being a font of information and encouragement
-* Terry Loughran for his advice on how long the README might take to do!
-* Tom Hall on Slack for taking the time to peer review my code
-* Ahmed_3P on Slack for peer reviewing my code and making suggestions
 * My friends and family for testing the project on their devices and offering words of encouragement
