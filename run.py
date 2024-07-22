@@ -14,5 +14,42 @@ SHEET = GSPREAD_CLIENT.open('pp3-holiday-budget-tracker')
 
 budget = SHEET.worksheet('budget-tracker')
 
-data = budget.get_all_values()
-print(data)
+def main():
+
+    welcome_message()
+
+    main_menu()
+
+
+
+# Welcome
+def welcome_message():
+    """
+    Display welcome message to the user with prompt to confirm entry
+    """   
+    print(f"Welcome to Holiday Budget Tracker!")
+    input(f"Press 'Enter' to continue...")
+
+# Main Menu
+def main_menu():
+    """
+    Display Main Menu
+    """
+    print("main menu is working")
+
+# Create Budget - Title and Total
+main()
+
+# Add Category
+
+
+# Add Expense
+
+
+# Update Existing Budget - Title or Total
+
+
+# See Budget Breakdown
+
+
+# Exit
