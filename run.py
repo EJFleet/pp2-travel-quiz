@@ -124,7 +124,6 @@ def get_expense():
     """
     # Choose which budget to update
     while True:
-        print("Select a budget: ")
         worksheets = SHEET.worksheets()
         for i, sheet in enumerate(worksheets):
             if i == 0:
@@ -152,8 +151,20 @@ def get_expense():
     expense_name = input("Enter name of expense: \n")
 
     # Enter amount of expense
-    expense_amount = float(input("Enter expense amount: \n"))
+    
+    while True:
+        expense_amount_input = input("Enter expense amount: \n")
+
+        try:
+            if is_valid_amount(expense_amount_input):
+                expense_amount = round(float(expense_amount_input), 2)
+                break
+            else:
+                print("Invalid input.  Please enter a positive number with up to 2 decimal places.")
         
+        except ValueError:
+            print("Invalid input.  Please enter a positive number with up to 2 decimal places.")
+
 
     # Choose expense category
     expense_categories = [
@@ -174,12 +185,14 @@ def get_expense():
         
         try:
             selected_category_index = int(selected_category_input) - 1
+
             if selected_category_index in range(len(expense_categories)):
                 selected_category = expense_categories[selected_category_index]
                 new_expense = Expense(
                     category=selected_category, name=expense_name, amount=expense_amount, budget_name=selected_budget.title
                 )
                 return new_expense
+
             else:
                 print(f"Invalid category. Please enter a number between 1 and {value_range}")
         
