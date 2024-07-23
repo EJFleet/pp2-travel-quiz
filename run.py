@@ -1,4 +1,5 @@
 from budget import Budget
+import re
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -20,6 +21,8 @@ def main():
     welcome_message()
 
     main_menu()
+
+
 
 
 
@@ -46,8 +49,9 @@ def main_menu():
         
         choice = input("  Enter number 1-4: ").strip()
         if choice == '1':
-            create_new_budget()
-            break
+            new_budget = create_new_budget()
+            print(f"New budget created! You have {new_budget.amount} to spend in {new_budget.name}"
+)           break
         elif choice == '2':
             add_expense()
             break
@@ -60,10 +64,34 @@ def main_menu():
         else:
             print('Invalid number. Please try again')
 
+# Check input for valid number
+def is_valid_amount(amount):
+    """
+    Checks is the number entered is a positive number with up to two decimal places
+    """
+    pattern = r'^\d+(\.\d{1,2})?$'
+    return re.match(pattern, amount) is not None
+
 
 # Create Budget - Title and Total
 def create_new_budget():
+    """
+    Create a new budget with new name and new total
+    """
     print("create new budget working")
+    budget_name = input("Enter your destination: \n")
+
+    while True:
+        budget_amount_input = (input("Enter total of budget: \n"))
+
+        if is_valid_amount(budget_amount_input):
+            budget_amount = float(budget_amount_input)
+            new_budget = Budget(name=budget_name, amount=budget_amount)
+            return new_budget
+                    
+        else:
+            print("Invalid input.  Please enter a positive number with up to 2 decimal places.")
+
 
 
 # Add Expense
