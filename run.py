@@ -27,7 +27,7 @@ def welcome_message():
     """
     Display welcome message to the user with prompt to confirm entry
     """   
-    print(f"Welcome to Holiday Budget Tracker!")
+    print(f"Welcome to Holiday Budget Tracker!\n")
     input(f"Press 'Enter' to continue...\n")
 
 # Main Menu
@@ -52,6 +52,7 @@ def main_menu():
         elif choice == '2':
             new_expense = get_expense()
             add_expense_to_budget(new_expense)
+            #calculate_remaining_budget(new_budget)
 
         elif choice == '3':
             budget_breakdown()
@@ -61,7 +62,7 @@ def main_menu():
             exit_program()
             break
         else:
-            print('Invalid number. Please try again')
+            print('Invalid number. Please try again.\n')
 
 # Check input for valid number
 def is_valid_amount(amount):
@@ -88,8 +89,8 @@ def create_new_budget():
             return new_budget
                     
         else:
-            print("Invalid input.  Please enter a positive number with up to 2 decimal places.")
-
+            print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
+    
 
 def add_budget_sheet(budget):
     """
@@ -140,10 +141,10 @@ def get_expense():
                 selected_budget = worksheets[selected_budget_index]
                 break
             else:
-                print(f"Invalid budget. Please enter a number {budget_value_range}")
+                print(f"Invalid budget. Please enter a number {budget_value_range}\n")
         
         except ValueError:
-            print(f"Invalid input. Please enter a number {budget_value_range}")
+            print(f"Invalid input. Please enter a number {budget_value_range}\n")
         
     # Enter name of expense
     expense_name = input("Enter name of expense: \n")
@@ -158,10 +159,10 @@ def get_expense():
                 expense_amount = round(float(expense_amount_input), 2)
                 break
             else:
-                print("Invalid input.  Please enter a positive number with up to 2 decimal places.")
+                print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
         
         except ValueError:
-            print("Invalid input.  Please enter a positive number with up to 2 decimal places.")
+            print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
 
 
     # Choose expense category
@@ -192,10 +193,10 @@ def get_expense():
                 return new_expense
 
             else:
-                print(f"Invalid category. Please enter a number between 1 and {value_range}")
+                print(f"Invalid category. Please enter a number between 1 and {value_range}\n")
         
         except ValueError:
-            print(f"Invalid input. Please enter a number between 1 and {value_range}")
+            print(f"Invalid input. Please enter a number between 1 and {value_range}\n")
     
     return new_expense
 
@@ -209,14 +210,25 @@ def add_expense_to_budget(expense):
     budget_worksheet = SHEET.worksheet(expense.budget_name)
     expense_data = [expense.category, expense.name, expense.amount]
     budget_worksheet.append_row(expense_data)
-    print("Budget updated successfully")
+    print("Budget updated successfully\n")
+    print(f"You have x left in your {budget_worksheet.title} budget\n")
 
+
+#def calculate_remaining_budget(new_budget):
+    #new_budget = create_new_budget()
+    #remaining_budget = new_budget.amount
+    #print(f"You have {remaining_budget} left")
+    
+    
+    
+    #return remaining_budget
        
             
 
 # See Budget Breakdown
-def budget_breakdown():
+def budget_breakdown(budget_worksheet):
     print("budget breakdown working")
+    budget_worksheet = SHEET.worksheet(expense.budget_name)
 
 # Exit
 def exit_program():
