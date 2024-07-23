@@ -127,13 +127,16 @@ def get_expense():
         print("Select a budget: ")
         worksheets = SHEET.worksheets()
         for i, sheet in enumerate(worksheets):
-            print(f"  {i + 1}.{sheet.title}")
+            if i == 0:
+                continue
+            else:
+                print(f"  {i}.{sheet.title}")
         
-        budget_value_range = f"[1 - {len(worksheets)}]"
+        budget_value_range = f"[1 - {len(worksheets) - 1}]"
         selected_budget_input = input(f"Enter a budget number {budget_value_range}: \n")
         
         try:
-            selected_budget_index = int(selected_budget_input) - 1
+            selected_budget_index = int(selected_budget_input)
             if selected_budget_index in range(len(worksheets)):
                 selected_budget = worksheets[selected_budget_index]
                 break
