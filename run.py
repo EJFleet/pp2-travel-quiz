@@ -122,7 +122,21 @@ def add_budget_sheet(budget):
 
 # Add Expense
 def add_expense():
+    """
+    Gets the details of the user's expense and adds it to the worksheet
+    """
     print("add expense working")
+    expense_name = input("Enter name of expense: \n")
+    expense_amount = float(input("Enter expense amount: \n"))
+    expense_categories = [
+        "Accommodation",
+        "Travel",
+        "Food",
+        "Entertainment",
+        "Miscellaneous"
+    ]
+
+    
 
 # See Budget Breakdown
 def budget_breakdown():
