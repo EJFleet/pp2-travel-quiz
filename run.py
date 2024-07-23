@@ -1,3 +1,4 @@
+from budget import Budget
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -63,6 +64,7 @@ def main_menu():
 # Create Budget - Title and Total
 def create_new_budget():
     print("create new budget working")
+
 
 # Add Expense
 def add_expense():
