@@ -206,7 +206,9 @@ def budget_breakdown():
 
 # Exit
 def exit_program():
-    print("exit program working")
+    print("Thank you for using Holiday Budget Tracker! Bon Voyage! ✈️")
+    input(f"Press 'Enter' to restart programme...\n")
+
 
 
 main()
