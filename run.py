@@ -1,4 +1,5 @@
 from budget import Budget
+from expense import Expense
 import re
 import gspread
 from google.oauth2.service_account import Credentials
@@ -41,7 +42,7 @@ def main_menu():
 
         print("What would you like to do?")
         print("  1. Create new holiday budget")
-        print("  2. Update existing budget")
+        print("  2. Add an expense")
         print("  3. See budget breakdown")
         print("  4. Exit program")
         
@@ -53,7 +54,7 @@ def main_menu():
 
         elif choice == '2':
             add_expense()
-            break
+            
 
         elif choice == '3':
             budget_breakdown()
@@ -121,22 +122,24 @@ def add_budget_sheet(budget):
 
 
 # Add Expense
-def add_expense():
+def get_expense():
     """
     Gets the details of the user's expense and adds it to the worksheet
     """
     print("add expense working")
+    expense_budget = input("Which budget would you like to update?\n")
     expense_name = input("Enter name of expense: \n")
     expense_amount = float(input("Enter expense amount: \n"))
+    print(f"You've entered {expense_name}, {expense_amount}") #debug
     expense_categories = [
-        "Accommodation",
-        "Travel",
-        "Food",
-        "Entertainment",
-        "Miscellaneous"
+        "🏨 Accommodation",
+        "✈️ Travel",
+        "🍔 Food",
+        "🎉 Entertainment",
+        "🛍️ Miscellaneous"
     ]
 
-    
+
 
 # See Budget Breakdown
 def budget_breakdown():
