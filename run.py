@@ -75,3 +75,6 @@ def budget_breakdown():
 # Exit
 def exit_program():
     print("exit program working")
+
+
+main()

@@ -290,7 +290,7 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 
 ### Code Used
 
-[Amy Lour README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) for examples of what to include in the README sections.
+[Amy Richardson's README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) for examples of what to include in the README sections.
 
 Code Institute 'Love Sandwiches' walkthrough project.
 
