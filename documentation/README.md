@@ -286,6 +286,12 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 
 ### Solved Bugs
 
+|Bug|Solution|Fixed?|
+|-----|-----|-----|
+|Title and ID of worksheet being printed out rather than just the name| | No| 
+![Bug1](/documentation/testing/title-and-id-printing-out.png)
+
+
 ## Credits
 
 ### Code Used
