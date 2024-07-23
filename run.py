@@ -53,8 +53,8 @@ def main_menu():
             add_budget_sheet(new_budget)
 
         elif choice == '2':
-            add_expense()
-            
+            new_expense = get_expense()
+            print(new_expense)
 
         elif choice == '3':
             budget_breakdown()
@@ -126,11 +126,9 @@ def get_expense():
     """
     Gets the details of the user's expense and adds it to the worksheet
     """
-    print("add expense working")
     expense_budget = input("Which budget would you like to update?\n")
     expense_name = input("Enter name of expense: \n")
     expense_amount = float(input("Enter expense amount: \n"))
-    print(f"You've entered {expense_name}, {expense_amount}") #debug
     expense_categories = [
         "🏨 Accommodation",
         "✈️ Travel",
@@ -138,6 +136,30 @@ def get_expense():
         "🎉 Entertainment",
         "🛍️ Miscellaneous"
     ]
+
+    while True:
+        print("Select an expense category: ")
+        for i, category_name in enumerate(expense_categories):
+            print(f"  {i + 1}. {category_name}")
+        
+        value_range = f"[1 - {len(expense_categories)}]"
+        selected_category_input = input(f"Enter a category number [{value_range}]: \n")
+        
+        try:
+            selected_category_index = int(selected_category_input) - 1
+            if selected_category_index in range(len(expense_categories)):
+                selected_category = expense_categories[selected_category_index]
+                new_expense = Expense(
+                    category=selected_category, name=expense_name, amount=expense_amount
+                )
+                return new_expense
+            else:
+                print(f"Invalid category. Please enter a number between 1 and {value_range}")
+        
+        except ValueError:
+            print(f"Invalid input. Please enter a number between 1 and {value_range}")
+        
+
 
 
 
