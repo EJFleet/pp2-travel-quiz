@@ -48,7 +48,7 @@ def main_menu():
         choice = input("  Enter number 1-4: ").strip()
         if choice == '1':
             new_budget = create_new_budget()
-            print(f"New budget created! You have {new_budget.amount} to spend in {new_budget.name}\n")
+            print(f"New budget created! You have {new_budget.amount:.2f} to spend in {new_budget.name}\n")
             add_budget_sheet(new_budget)
 
         elif choice == '2':
@@ -86,7 +86,7 @@ def create_new_budget():
         budget_amount_input = (input("Enter total of budget: \n"))
 
         if is_valid_amount(budget_amount_input):
-            budget_amount = float(budget_amount_input)
+            budget_amount = round(float(budget_amount_input), 2)
             new_budget = Budget(name=budget_name, amount=budget_amount)
             return new_budget
                     
@@ -117,10 +117,7 @@ def add_budget_sheet(budget):
     new_sheet.update(range_name='A2:B2', values=[['Budget Total:', budget.amount]])
     new_sheet.update(range_name='A3:D4', values=[['Category', 'Expense Name', 'Amount', 'Budget Remaining']])
 
-    print(f"New sheet '{sheet_name}' created with budget amount {budget.amount}")
-
-
-
+    print(f"New sheet '{sheet_name}' created with budget amount {budget.amount:.2f}")
 
 
 # Add Expense
