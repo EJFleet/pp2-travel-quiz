@@ -175,7 +175,7 @@ def get_expense():
                 if selected_category_index in range(len(expense_categories)):
                     selected_category = expense_categories[selected_category_index]
                     new_expense = Expense(
-                        category=selected_category, name=expense_name, amount=expense_amount, budget_name=selected_budget
+                        category=selected_category, name=expense_name, amount=expense_amount, budget_name=selected_budget.title
                     )
                     return new_expense
                 else:
