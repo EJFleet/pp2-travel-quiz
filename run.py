@@ -50,14 +50,16 @@ def main_menu():
         choice = input("  Enter number 1-4: ").strip()
         if choice == '1':
             new_budget = create_new_budget()
-            print(f"New budget created! You have {new_budget.amount} to spend in {new_budget.name}"
-)           break
+            print(f"New budget created! You have {new_budget.amount} to spend in {new_budget.name}\n")
+            
         elif choice == '2':
             add_expense()
             break
+
         elif choice == '3':
             budget_breakdown()
             break
+            
         elif choice == '4':
             exit_program()
             break
