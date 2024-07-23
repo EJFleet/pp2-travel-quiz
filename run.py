@@ -22,9 +22,6 @@ def main():
     main_menu()
 
 
-
-
-
 # Welcome
 def welcome_message():
     """
@@ -133,28 +130,30 @@ def get_expense():
             print(f"  {i + 1}.{sheet.title}")
         
         budget_value_range = f"[1 - {len(worksheets)}]"
-        selected_budget_input = input(f"Enter a budget number [{budget_value_range}]: \n")
+        selected_budget_input = input(f"Enter a budget number {budget_value_range}: \n")
         
         try:
             selected_budget_index = int(selected_budget_input) - 1
             if selected_budget_index in range(len(worksheets)):
                 selected_budget = worksheets[selected_budget_index]
+                break
             else:
-                print(f"Invalid category. Please enter a number between 1 and {budget_value_range}")
+                print(f"Invalid budget. Please enter a number {budget_value_range}")
         
         except ValueError:
-            print(f"Invalid input. Please enter a number between 1 and {budget_value_range}")
+            print(f"Invalid input. Please enter a number {budget_value_range}")
         
 
 
     # Enter name of expense
-        expense_name = input("Enter name of expense: \n")
+    expense_name = input("Enter name of expense: \n")
 
     # Enter amount of expense
-        expense_amount = float(input("Enter expense amount: \n"))
+    expense_amount = float(input("Enter expense amount: \n"))
+        
 
     # Choose expense category
-        expense_categories = [
+    expense_categories = [
             "🏨 Accommodation",
             "✈️ Travel",
             "🍔 Food",
@@ -162,27 +161,27 @@ def get_expense():
             "🛍️ Miscellaneous"
         ]
 
-        while True:
-            print("Select an expense category: ")
-            for i, category_name in enumerate(expense_categories):
-                print(f"  {i + 1}. {category_name}")
-            
-            value_range = f"[1 - {len(expense_categories)}]"
-            selected_category_input = input(f"Enter a category number [{value_range}]: \n")
-            
-            try:
-                selected_category_index = int(selected_category_input) - 1
-                if selected_category_index in range(len(expense_categories)):
-                    selected_category = expense_categories[selected_category_index]
-                    new_expense = Expense(
-                        category=selected_category, name=expense_name, amount=expense_amount, budget_name=selected_budget.title
-                    )
-                    return new_expense
-                else:
-                    print(f"Invalid category. Please enter a number between 1 and {value_range}")
-            
-            except ValueError:
-                print(f"Invalid input. Please enter a number between 1 and {value_range}")
+    while True:
+        print("Select an expense category: ")
+        for i, category_name in enumerate(expense_categories):
+            print(f"  {i + 1}. {category_name}")
+        
+        value_range = f"[1 - {len(expense_categories)}]"
+        selected_category_input = input(f"Enter a category number [{value_range}]: \n")
+        
+        try:
+            selected_category_index = int(selected_category_input) - 1
+            if selected_category_index in range(len(expense_categories)):
+                selected_category = expense_categories[selected_category_index]
+                new_expense = Expense(
+                    category=selected_category, name=expense_name, amount=expense_amount, budget_name=selected_budget.title
+                )
+                return new_expense
+            else:
+                print(f"Invalid category. Please enter a number between 1 and {value_range}")
+        
+        except ValueError:
+            print(f"Invalid input. Please enter a number between 1 and {value_range}")
             
 
 # See Budget Breakdown
