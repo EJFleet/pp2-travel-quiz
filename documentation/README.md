@@ -288,8 +288,7 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 
 |Bug|Solution|Fixed?|
 |-----|-----|-----|
-|Title and ID of worksheet being printed out rather than just the name| | No| 
-![Bug1](/documentation/testing/title-and-id-printing-out.png)
+|Title and ID of worksheet being printed out rather than just the name| Use selected_budget.title rather than selected_budget | Yes| 
 
 
 ## Credits
