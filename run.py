@@ -51,7 +51,7 @@ def main_menu():
 
         elif choice == '2':
             new_expense = get_expense()
-            print(new_expense)
+            add_expense_to_budget(new_expense)
 
         elif choice == '3':
             budget_breakdown()
@@ -145,8 +145,6 @@ def get_expense():
         except ValueError:
             print(f"Invalid input. Please enter a number {budget_value_range}")
         
-
-
     # Enter name of expense
     expense_name = input("Enter name of expense: \n")
 
@@ -198,6 +196,22 @@ def get_expense():
         
         except ValueError:
             print(f"Invalid input. Please enter a number between 1 and {value_range}")
+    
+    return new_expense
+
+# Add expense to budget worksheet
+
+def add_expense_to_budget(expense):
+    """
+    Update budget worksheet, add new row with the expense data provided 
+    """
+    print("Updating budget file...\n")
+    budget_worksheet = SHEET.worksheet(expense.budget_name)
+    expense_data = [expense.category, expense.name, expense.amount]
+    budget_worksheet.append_row(expense_data)
+    print("Budget updated successfully")
+
+       
             
 
 # See Budget Breakdown
@@ -206,9 +220,8 @@ def budget_breakdown():
 
 # Exit
 def exit_program():
-    print("Thank you for using Holiday Budget Tracker! Bon Voyage! ✈️")
+    print("Thank you for using Holiday Budget Tracker! Bon Voyage! ✈️\n")
     input(f"Press 'Enter' to restart programme...\n")
-
 
 
 main()
