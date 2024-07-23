@@ -14,8 +14,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('pp3-holiday-budget-tracker')
 
-budget = SHEET.worksheet('budget-tracker')
-
 def main():
 
     welcome_message()
@@ -51,7 +49,8 @@ def main_menu():
         if choice == '1':
             new_budget = create_new_budget()
             print(f"New budget created! You have {new_budget.amount} to spend in {new_budget.name}\n")
-            
+            add_budget_sheet(new_budget)
+
         elif choice == '2':
             add_expense()
             break
@@ -93,6 +92,34 @@ def create_new_budget():
                     
         else:
             print("Invalid input.  Please enter a positive number with up to 2 decimal places.")
+
+
+def add_budget_sheet(budget):
+    """
+    Add a new sheet to the existing spreadsheet with the budget details
+    """
+
+    # Ensure sheet name is unique
+    sheet_name = budget.name
+    existing_sheets = [sheet.title for sheet in SHEET.worksheets()]
+
+    count = 2
+    while sheet_name in existing_sheets:
+        sheet_name = f"{budget.name} 2"
+        count += 1
+
+    # Add new budget worksheet to spreadsheet
+    new_sheet = SHEET.add_worksheet(title=sheet_name, rows=100, cols=20)
+    
+    # Populate new sheet with budget details
+
+    new_sheet.update(range_name='A1:B1', values=[['Destination:', budget.name]])
+    new_sheet.update(range_name='A2:B2', values=[['Budget Total:', budget.amount]])
+    new_sheet.update(range_name='A3:D4', values=[['Category', 'Expense Name', 'Amount', 'Budget Remaining']])
+
+    print(f"New sheet '{sheet_name}' created with budget amount {budget.amount}")
+
+
 
 
 
