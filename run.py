@@ -323,5 +323,5 @@ def exit_program():
     else:
         sys.exit()
 
-
-main()
+if __name__ == "__main__":
+    main()
