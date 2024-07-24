@@ -54,11 +54,8 @@ def main_menu():
             add_expense_to_budget(new_expense)
             
         elif choice == '3':
-            #budget_breakdown()
-            budget_worksheet = select_budget()
-            total_expenses = sum_expenses(budget_worksheet)
-            print(total_expenses)
-            break
+            budget_breakdown()
+            
             
         elif choice == '4':
             exit_program()
@@ -231,13 +228,6 @@ def add_expense_to_budget(expense):
     print(f"You have x left in your {budget_worksheet.title} budget\n")
 
 
-def budget_breakdown():
-    """
-    Calculate and display how much the user has spent and how much they have left
-    """
-    total_expenses = sum_expenses()
-
-
 def sum_expenses(budget_worksheet):
     """
     Calculate how much the user has spent from a particular budget
@@ -247,22 +237,24 @@ def sum_expenses(budget_worksheet):
     return total_expenses
     
 
-
-"""
 def calculate_remaining_budget(budget_name, budget_amount):
-    budget_name = select_budget()
-    budget_amount = 
-    """ 
+    """
+    Calculate the remaining budget amount
+    """
+
+    budget_worksheet = SHEET.worksheet(budget_name)
+    total_expenses = sum_expenses(budget_worksheet)
+    remaining_budget = budget_amount - total_expenses
+    return remaining_budget
+   
             
 def budget_breakdown():
     """
-    Let user see the breakdown of a selected budget
+    Calculate and display how much the user has spent and how much they have left
     """
     print("Select which budget you would like to view:  \n")
-    budget_worksheet_name = select_budget()
-    print(f"This is your budget breakdown for {budget_worksheet_name.title}:\n")
-
-
+    selected_budget = select_budget()
+    print(f"This is your budget breakdown for {selected_budget.title}:\n")
 
 
 def exit_program():
