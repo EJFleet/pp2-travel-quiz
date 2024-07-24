@@ -1,5 +1,6 @@
 from budget import Budget
 from expense import Expense
+import sys
 import re
 import gspread
 from google.oauth2.service_account import Credentials
@@ -60,7 +61,7 @@ def main_menu():
             
         elif choice == '4':
             exit_program()
-            break
+            
         else:
             print('Invalid number. Please try again.\n')
 
@@ -115,7 +116,7 @@ def add_budget_sheet(budget):
     new_sheet.update(range_name='A2:B2', values=[['Budget Total:', budget.amount]])
     new_sheet.update(range_name='A3:D4', values=[['Category', 'Expense Name', 'Amount', 'Budget Remaining']])
 
-    print(f"New sheet '{sheet_name}' created with budget amount {budget.amount:.2f}")
+    print(f"New sheet '{sheet_name}' created with budget amount {budget.amount:.2f}\n")
 
 
 # Add Expense
@@ -230,10 +231,19 @@ def budget_breakdown(budget_worksheet):
     print("budget breakdown working")
     budget_worksheet = SHEET.worksheet(expense.budget_name)
 
-# Exit
+
 def exit_program():
+
+    """
+    Lets the user either restart or exit the programme
+    """
+
     print("Thank you for using Holiday Budget Tracker! Bon Voyage! ✈️\n")
-    input(f"Press 'Enter' to restart programme...\n")
+    exit_input = input(f"To restart program press Y, otherwise press any key to end program:  \n")
+    if exit_input.lower() == "y":
+        welcome_message()
+    else:
+        sys.exit()
 
 
 main()
