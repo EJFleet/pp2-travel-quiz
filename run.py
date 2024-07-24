@@ -111,7 +111,7 @@ def add_budget_sheet(budget):
 
     new_sheet.update(range_name='A1:B1', values=[['Destination:', budget.name]])
     new_sheet.update(range_name='A2:B2', values=[['Budget Total:', budget.amount]])
-    new_sheet.update(range_name='A3:D4', values=[['Category', 'Expense Name', 'Amount', 'Budget Remaining']])
+    new_sheet.update(range_name='A3:D3', values=[['Category', 'Expense Name', 'Amount']])
 
     print(f"New sheet '{sheet_name}' created with budget amount {budget.amount:.2f}\n")
 
@@ -241,7 +241,6 @@ def calculate_remaining_budget(budget_name, budget_amount):
     """
     Calculate the remaining budget amount
     """
-
     budget_worksheet = SHEET.worksheet(budget_name)
     total_expenses = sum_expenses(budget_worksheet)
     remaining_budget = budget_amount - total_expenses
@@ -254,8 +253,12 @@ def budget_breakdown():
     """
     print("Select which budget you would like to view:  \n")
     selected_budget = select_budget()
+    total_expenses = sum_expenses(selected_budget)
+    selected_budget_amount = float(selected_budget.col_values(2)[1])
     print(f"This is your budget breakdown for {selected_budget.title}:\n")
-
+    print(f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} from your {selected_budget.title} budget.")
+    remaining_budget = calculate_remaining_budget(selected_budget.title, selected_budget_amount)
+    print(f"You have {remaining_budget:.2f} left.\n")
 
 def exit_program():
     """
