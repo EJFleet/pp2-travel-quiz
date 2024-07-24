@@ -23,7 +23,6 @@ def main():
     main_menu()
 
 
-# Welcome
 def welcome_message():
     """
     Display welcome message to the user with prompt to confirm entry
@@ -31,7 +30,7 @@ def welcome_message():
     print(f"Welcome to Holiday Budget Tracker!\n")
     input(f"Press 'Enter' to continue...\n")
 
-# Main Menu
+
 def main_menu():
     """
     Display Main Menu
@@ -53,8 +52,7 @@ def main_menu():
         elif choice == '2':
             new_expense = get_expense()
             add_expense_to_budget(new_expense)
-            #calculate_remaining_budget(new_budget)
-
+            
         elif choice == '3':
             budget_breakdown()
             break
@@ -65,7 +63,7 @@ def main_menu():
         else:
             print('Invalid number. Please try again.\n')
 
-# Check input for valid number
+
 def is_valid_amount(amount):
     """
     Checks is the number entered is a positive number with up to two decimal places
@@ -74,7 +72,6 @@ def is_valid_amount(amount):
     return re.match(pattern, amount) is not None
 
 
-# Create Budget - Title and Total
 def create_new_budget():
     """
     Create a new budget with new name and new total
@@ -95,7 +92,7 @@ def create_new_budget():
 
 def add_budget_sheet(budget):
     """
-    Add a new sheet to the existing spreadsheet with the budget details
+    Add a new worksheet to the existing spreadsheet with the budget details
     """
 
     # Ensure sheet name is unique
@@ -119,14 +116,50 @@ def add_budget_sheet(budget):
     print(f"New sheet '{sheet_name}' created with budget amount {budget.amount:.2f}\n")
 
 
-# Add Expense
 def get_expense():
     """
     Gets the details of the user's expense and adds it to the worksheet
     """
-    # Choose which budget to update
+    expense_name = input("Enter name of expense: \n")
+    expense_amount = get_expense_amount()
+    selected_budget = select_budget()
+    expense_category = choose_expense_category()
+
+    new_expense = Expense(
+                    category=expense_category, 
+                    name=expense_name, 
+                    amount=expense_amount, 
+                    budget_name=selected_budget.title
+                )
+    return new_expense
+
+
+def get_expense_amount():
+    """
+    Get amount of expense from the user
+    """
+    
     while True:
-        worksheets = SHEET.worksheets()
+        expense_amount_input = input("Enter expense amount: \n")
+
+        try:
+            if is_valid_amount(expense_amount_input):
+                expense_amount = round(float(expense_amount_input), 2)
+                return expense_amount
+            else:
+                print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
+        
+        except ValueError:
+            print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
+
+
+def select_budget():
+    """
+    Create a menu for the user to choose which budget to work on
+    """
+    worksheets = SHEET.worksheets()
+    while True:
+    
         for i, sheet in enumerate(worksheets):
             if i == 0:
                 continue
@@ -140,6 +173,7 @@ def get_expense():
             selected_budget_index = int(selected_budget_input)
             if selected_budget_index in range(len(worksheets)):
                 selected_budget = worksheets[selected_budget_index]
+                return selected_budget
                 break
             else:
                 print(f"Invalid budget. Please enter a number {budget_value_range}\n")
@@ -147,26 +181,11 @@ def get_expense():
         except ValueError:
             print(f"Invalid input. Please enter a number {budget_value_range}\n")
         
-    # Enter name of expense
-    expense_name = input("Enter name of expense: \n")
-
-    # Enter amount of expense
-    
-    while True:
-        expense_amount_input = input("Enter expense amount: \n")
-
-        try:
-            if is_valid_amount(expense_amount_input):
-                expense_amount = round(float(expense_amount_input), 2)
-                break
-            else:
-                print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
-        
-        except ValueError:
-            print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
-
-
-    # Choose expense category
+   
+def choose_expense_category():
+    """
+    Display list of expense categories and let user choose which one to enter
+    """
     expense_categories = [
             "🏨 Accommodation",
             "✈️ Travel",
@@ -188,20 +207,14 @@ def get_expense():
 
             if selected_category_index in range(len(expense_categories)):
                 selected_category = expense_categories[selected_category_index]
-                new_expense = Expense(
-                    category=selected_category, name=expense_name, amount=expense_amount, budget_name=selected_budget.title
-                )
-                return new_expense
-
+                return selected_category
+               
             else:
                 print(f"Invalid category. Please enter a number between 1 and {value_range}\n")
         
         except ValueError:
             print(f"Invalid input. Please enter a number between 1 and {value_range}\n")
     
-    return new_expense
-
-# Add expense to budget worksheet
 
 def add_expense_to_budget(expense):
     """
@@ -227,17 +240,19 @@ def add_expense_to_budget(expense):
             
 
 # See Budget Breakdown
-def budget_breakdown(budget_worksheet):
-    print("budget breakdown working")
-    budget_worksheet = SHEET.worksheet(expense.budget_name)
+def budget_breakdown():
+    """
+    Let user see the breakdown of a selected budget
+    """
+    print("Select which budget you would like to view:  \n")
+    budget_worksheet_name = select_budget()
+    print(f"This is your budget breakdown for {budget_worksheet_name.title}:\n")
 
 
 def exit_program():
-
     """
     Lets the user either restart or exit the programme
     """
-
     print("Thank you for using Holiday Budget Tracker! Bon Voyage! ✈️\n")
     exit_input = input(f"To restart program press Y, otherwise press any key to end program:  \n")
     if exit_input.lower() == "y":
