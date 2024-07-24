@@ -51,6 +51,7 @@ def main_menu():
 
         choice = input("Enter number 1-4: \n").strip()
         if choice == "1":
+            clear_screen()
             new_budget = create_new_budget()
             if new_budget:
                 print(
@@ -60,12 +61,14 @@ def main_menu():
                 add_budget_sheet(new_budget)
 
         elif choice == "2":
+            clear_screen()
             new_expense = get_expense()
             if new_expense:
                 add_expense_to_budget(new_expense)
                 print(new_expense)
 
         elif choice == "3":
+            clear_screen()
             selected_budget = select_budget()
             if selected_budget:
                 budget_breakdown(selected_budget)
@@ -148,10 +151,13 @@ def get_expense():
     selected_budget = select_budget()
     if not selected_budget:
         return None
-
+    clear_screen()
     expense_category = choose_expense_category()
+    clear_screen()
     expense_name = input("Enter name of expense: \n")
+    clear_screen()
     expense_amount = get_expense_amount()
+    clear_screen()
 
     return Expense(
         category=expense_category,
@@ -176,7 +182,6 @@ def select_budget():
         return None
 
     while True:
-        clear_screen()
         print("Please select a budget from the list below:\n")
         for i, sheet in enumerate(worksheets):
             if i == 0:
@@ -188,17 +193,21 @@ def select_budget():
         selected_budget_input = input(
             f"\nEnter a budget number {budget_value_range}: \n"
         )
-
         try:
             selected_budget_index = int(selected_budget_input)
             if selected_budget_index in range(1, len(worksheets)):
                 selected_budget = worksheets[selected_budget_index]
                 return selected_budget
+                clear_screen()
             else:
-                print(f"Invalid budget. Please enter a number {budget_value_range}\n")
+                input(
+                    f"Invalid budget selected. Press 'Enter' to try again.\n"
+                    )
+                clear_screen()
 
         except ValueError:
-            print(f"Invalid input. Please enter a number {budget_value_range}\n")
+            input(f"Invalid input. Press 'Enter' to try again.") 
+            clear_screen()
 
 
 def get_expense_amount():
@@ -212,15 +221,24 @@ def get_expense_amount():
             if is_valid_amount(expense_amount_input):
                 expense_amount = round(float(expense_amount_input), 2)
                 return expense_amount
+                clear_screen()
             else:
                 print(
                     "Invalid input.  Please enter a positive number with up to 2 decimal places.\n"
                 )
+                input(
+                    f"Press 'Enter' to try again."
+                    )
+                clear_screen()
 
         except ValueError:
             print(
                 "Invalid input.  Please enter a positive number with up to 2 decimal places.\n"
             )
+            input(
+                f"Press 'Enter' to try agin."
+            )
+            clear_screen()
 
 
 def choose_expense_category():
@@ -236,28 +254,32 @@ def choose_expense_category():
     ]
 
     while True:
+        
         print("Select an expense category: ")
         for i, category_name in enumerate(expense_categories):
             print(f"  {i + 1}. {category_name}")
 
         value_range = f"[1 - {len(expense_categories)}]"
-        selected_category_input = input(f"Enter a category number {value_range}: \n")
+        selected_category_input = input(f"\nEnter a category number {value_range}: \n")
 
         try:
             selected_category_index = int(selected_category_input) - 1
-
             if selected_category_index in range(len(expense_categories)):
                 selected_category = expense_categories[selected_category_index]
                 return selected_category
-
+                clear_screen()
             else:
-                print(
-                    f"Invalid category. Please enter a number between 1 and {value_range}\n"
+                input(
+                    f"Invalid category selected. Press 'Enter' to try again.\n"
                 )
+                clear_screen()
 
         except ValueError:
-            print(f"Invalid input. Please enter a number between 1 and {value_range}\n")
-
+            input(
+                f"Invalid input. Press 'Enter' to try again."
+                )
+            clear_screen()
+            
 
 def add_expense_to_budget(expense):
     """
@@ -296,17 +318,23 @@ def budget_breakdown(selected_budget):
     Calculate and display how much the user has spent and how much they have left
     """
     clear_screen()
+    print("Calculating budget...")
     total_expenses = sum_expenses(selected_budget)
     selected_budget_amount = float(selected_budget.col_values(2)[1])
     remaining_budget = calculate_remaining_budget(
         selected_budget.title, selected_budget_amount
     )
-    print("Budget Breakdown:")
+    clear_screen()
+    print(
+        f"Budget Breakdown:"
+        )
     print(
         f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} "
         f"from your {selected_budget.title} budget."
-    )
-    print(f"You have {remaining_budget:.2f} left.\n")
+        )
+    print(
+        f"You have {remaining_budget:.2f} left.\n"
+        )
 
 
 def exit_program():
