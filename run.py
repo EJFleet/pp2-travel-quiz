@@ -43,9 +43,9 @@ def main_menu():
         print("  1. Create new holiday budget")
         print("  2. Add an expense")
         print("  3. See budget breakdown")
-        print("  4. Exit program")
+        print("  4. Exit program \n")
         
-        choice = input("  Enter number 1-4: ").strip()
+        choice = input("Enter number 1-4: \n").strip()
         if choice == '1':
             new_budget = create_new_budget()
             print(f"New budget created! You have {new_budget.amount:.2f} to spend in {new_budget.name}\n")
@@ -53,18 +53,16 @@ def main_menu():
 
         elif choice == '2':
             new_expense = get_expense()
-            if new_expense is not None:
-                add_expense_to_budget(new_expense)
+            add_expense_to_budget(new_expense)
             
         elif choice == '3':
             budget_breakdown()
-            
             
         elif choice == '4':
             exit_program()
             
         else:
-            print('Invalid number. Please try again.\n')
+            print('Invalid input. Please enter a number 1 - 4\n')
 
 def clear_screen():
     """ 
@@ -133,13 +131,6 @@ def get_expense():
     clear_screen()
     worksheets = SHEET.worksheets()
 
-    # Check if there are any budget worksheets
-    if len(worksheets) <= 1:
-        print("No budgets found.  Please create a budget first.\n")
-        input("Press 'Enter' to return to the main menu...")
-        clear_screen()
-        return None
-
     selected_budget = select_budget()
     expense_name = input("Enter name of expense: \n")
     expense_amount = get_expense_amount()
@@ -159,8 +150,18 @@ def select_budget():
     Create a menu for the user to choose which budget to work on
     """
     worksheets = SHEET.worksheets()
+
+    # Check if there are any budget worksheets
+    if len(worksheets) <= 1:
+        print("No budgets found.  Please create a budget first.\n")
+        input("Press 'Enter' to return to the main menu...")
+        clear_screen()
+        return None
+
     while True:
-    
+        
+        clear_screen()
+        print("Please select a budget from the list below:\n")
         for i, sheet in enumerate(worksheets):
             if i == 0:
                 continue
@@ -168,7 +169,7 @@ def select_budget():
                 print(f"  {i}.{sheet.title}")
         
         budget_value_range = f"[1 - {len(worksheets) - 1}]"
-        selected_budget_input = input(f"Enter a budget number {budget_value_range}: \n")
+        selected_budget_input = input(f"\nEnter a budget number {budget_value_range}: \n")
         
         try:
             selected_budget_index = int(selected_budget_input)
@@ -270,14 +271,13 @@ def budget_breakdown():
     """
     Calculate and display how much the user has spent and how much they have left
     """
-    print("Select which budget you would like to view:  \n")
     selected_budget = select_budget()
     total_expenses = sum_expenses(selected_budget)
     selected_budget_amount = float(selected_budget.col_values(2)[1])
-    clear_screen()
-    print(f"This is your budget breakdown for {selected_budget.title}:\n")
-    print(f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} from your {selected_budget.title} budget.")
     remaining_budget = calculate_remaining_budget(selected_budget.title, selected_budget_amount)
+    clear_screen()
+    print("Budget Breakdown:")
+    print(f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} from your {selected_budget.title} budget.")
     print(f"You have {remaining_budget:.2f} left.\n")
 
 def exit_program():
