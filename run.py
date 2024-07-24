@@ -2,6 +2,7 @@ from budget import Budget
 from expense import Expense
 import sys
 import re
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -26,9 +27,11 @@ def main():
 def welcome_message():
     """
     Display welcome message to the user with prompt to confirm entry
-    """   
+    """ 
+    clear_screen()  
     print(f"Welcome to Holiday Budget Tracker!\n")
     input(f"Press 'Enter' to continue...\n")
+    clear_screen()
 
 
 def main_menu():
@@ -36,7 +39,6 @@ def main_menu():
     Display Main Menu
     """
     while True:
-
         print("What would you like to do?")
         print("  1. Create new holiday budget")
         print("  2. Add an expense")
@@ -63,6 +65,12 @@ def main_menu():
         else:
             print('Invalid number. Please try again.\n')
 
+def clear_screen():
+    """ 
+    Clears screen
+    """
+    os.system("clear")
+
 
 def is_valid_amount(amount):
     """
@@ -76,6 +84,7 @@ def create_new_budget():
     """
     Create a new budget with new name and new total
     """
+    clear_screen()
     budget_name = input("Enter your destination: \n")
 
     while True:
@@ -120,6 +129,7 @@ def get_expense():
     """
     Gets the details of the user's expense and adds it to the worksheet
     """
+    clear_screen()
     expense_name = input("Enter name of expense: \n")
     expense_amount = get_expense_amount()
     selected_budget = select_budget()
@@ -200,7 +210,7 @@ def choose_expense_category():
             print(f"  {i + 1}. {category_name}")
         
         value_range = f"[1 - {len(expense_categories)}]"
-        selected_category_input = input(f"Enter a category number [{value_range}]: \n")
+        selected_category_input = input(f"Enter a category number {value_range}: \n")
         
         try:
             selected_category_index = int(selected_category_input) - 1
@@ -224,9 +234,8 @@ def add_expense_to_budget(expense):
     budget_worksheet = SHEET.worksheet(expense.budget_name)
     expense_data = [expense.category, expense.name, expense.amount]
     budget_worksheet.append_row(expense_data)
-    print("Budget updated successfully\n")
-    print(f"You have x left in your {budget_worksheet.title} budget\n")
-
+    print("Budget updated successfully!\n")
+  
 
 def sum_expenses(budget_worksheet):
     """
@@ -255,6 +264,7 @@ def budget_breakdown():
     selected_budget = select_budget()
     total_expenses = sum_expenses(selected_budget)
     selected_budget_amount = float(selected_budget.col_values(2)[1])
+    clear_screen()
     print(f"This is your budget breakdown for {selected_budget.title}:\n")
     print(f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} from your {selected_budget.title} budget.")
     remaining_budget = calculate_remaining_budget(selected_budget.title, selected_budget_amount)
@@ -264,6 +274,7 @@ def exit_program():
     """
     Lets the user either restart or exit the programme
     """
+    clear_screen()
     print("Thank you for using Holiday Budget Tracker! Bon Voyage! ✈️\n")
     exit_input = input(f"To restart program press Y, otherwise press any key to end program:  \n")
     if exit_input.lower() == "y":
