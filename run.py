@@ -53,7 +53,8 @@ def main_menu():
 
         elif choice == '2':
             new_expense = get_expense()
-            add_expense_to_budget(new_expense)
+            if new_expense is not None:
+                add_expense_to_budget(new_expense)
             
         elif choice == '3':
             budget_breakdown()
@@ -130,9 +131,18 @@ def get_expense():
     Gets the details of the user's expense and adds it to the worksheet
     """
     clear_screen()
+    worksheets = SHEET.worksheets()
+
+    # Check if there are any budget worksheets
+    if len(worksheets) <= 1:
+        print("No budgets found.  Please create a budget first.\n")
+        input("Press 'Enter' to return to the main menu...")
+        clear_screen()
+        return None
+
+    selected_budget = select_budget()
     expense_name = input("Enter name of expense: \n")
     expense_amount = get_expense_amount()
-    selected_budget = select_budget()
     expense_category = choose_expense_category()
 
     new_expense = Expense(
@@ -142,25 +152,6 @@ def get_expense():
                     budget_name=selected_budget.title
                 )
     return new_expense
-
-
-def get_expense_amount():
-    """
-    Get amount of expense from the user
-    """
-    
-    while True:
-        expense_amount_input = input("Enter expense amount: \n")
-
-        try:
-            if is_valid_amount(expense_amount_input):
-                expense_amount = round(float(expense_amount_input), 2)
-                return expense_amount
-            else:
-                print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
-        
-        except ValueError:
-            print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
 
 
 def select_budget():
@@ -190,7 +181,26 @@ def select_budget():
         
         except ValueError:
             print(f"Invalid input. Please enter a number {budget_value_range}\n")
+
+def get_expense_amount():
+    """
+    Get amount of expense from the user
+    """
+    
+    while True:
+        expense_amount_input = input("Enter expense amount: \n")
+
+        try:
+            if is_valid_amount(expense_amount_input):
+                expense_amount = round(float(expense_amount_input), 2)
+                return expense_amount
+            else:
+                print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
         
+        except ValueError:
+            print("Invalid input.  Please enter a positive number with up to 2 decimal places.\n")
+
+   
    
 def choose_expense_category():
     """
