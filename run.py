@@ -49,13 +49,15 @@ def main_menu():
         if choice == '1':
             new_budget = create_new_budget()
             if new_budget:
-                print(f"New budget created! You have {new_budget.amount:.2f} to spend in {new_budget.name}\n")
+                print(f"New budget created! You have {new_budget.amount:.2f} to spend in "
+                      f"{new_budget.name}\n")
                 add_budget_sheet(new_budget)
 
         elif choice == '2':
             new_expense = get_expense()
             if new_expense:
                 add_expense_to_budget(new_expense)
+                print(new_expense)
             
         elif choice == '3':
             selected_budget = select_budget()
@@ -143,11 +145,11 @@ def get_expense():
     expense_amount = get_expense_amount()
     
     return Expense(
-                    category=expense_category, 
-                    name=expense_name, 
-                    amount=expense_amount, 
-                    budget_name=selected_budget.title
-                )
+        category=expense_category, 
+        name=expense_name, 
+        amount=expense_amount, 
+        budget_name=selected_budget.title
+    )
 
 
 def select_budget():
@@ -249,7 +251,7 @@ def add_expense_to_budget(expense):
     budget_worksheet = SHEET.worksheet(expense.budget_name)
     expense_data = [expense.category, expense.name, expense.amount]
     budget_worksheet.append_row(expense_data)
-    print("Budget updated successfully!\n")
+    print("Budget updated successfully!")
   
 
 def sum_expenses(budget_worksheet):
@@ -280,7 +282,8 @@ def budget_breakdown(selected_budget):
     selected_budget_amount = float(selected_budget.col_values(2)[1])
     remaining_budget = calculate_remaining_budget(selected_budget.title, selected_budget_amount)
     print("Budget Breakdown:")
-    print(f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} from your {selected_budget.title} budget.")
+    print(f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} "
+          f"from your {selected_budget.title} budget.")
     print(f"You have {remaining_budget:.2f} left.\n")
 
 def exit_program():
