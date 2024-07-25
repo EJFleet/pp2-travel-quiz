@@ -61,24 +61,29 @@ View Holiday Budget Tracker on [Github](https://github.com/EJFleet/pp3_holiday_b
 
 ### User Stories
 
-#### Client Goals
+As a user, I want to:
 
-* 
+* Have an app that I can use to track my holiday spending
+* Keep track of my spending and budget
+* Be able to create my own budgets
+* Be able to navigate through the app easily
+* Be alerted to any error I may have made in input and instructed how to try again
 
 #### First-time Visitor Goals
 
 I want to: 
-* 
+* Understand the purpose of the app
+* Start the app with minimal instruction
+* Navigate the site easily
+* Have a smooth experience in creating/viewing a budget and entering expenses
 
-#### Returning Visitor Goals
+#### Returning/ Frequent Visitor Goals
 
 I want to: 
-* 
+* Easily access budget information
+* See a budget breakdown
+* Enter new expenses to a chosen budget
 
-#### Frequent Visitor Goals
-
-I want to 
-* 
 
 ## Design
 
