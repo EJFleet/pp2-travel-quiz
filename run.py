@@ -33,7 +33,25 @@ def welcome_message():
     Display welcome message to the user with prompt to confirm entry
     """
     clear_screen()
-    print(f"Welcome to Holiday Budget Tracker!\n")
+    ascii_art = r"""    
+                _ _ _ ____ _    ____ ____ _  _ ____    ___ ____ 
+                | | | |___ |    |    |  | |\/| |___     |  |  | 
+                |_|_| |___ |___ |___ |__| |  | |___     |  |__| 
+                                                                
+                _  _ ____ _    _ ___  ____ _   _                
+                |__| |  | |    | |  \ |__|  \_/                 
+                |  | |__| |___ | |__/ |  |   |                  
+                                                                
+                ___  _  _ ___  ____ ____ ___                    
+                |__] |  | |  \ | __ |___  |                     
+                |__] |__| |__/ |__] |___  |                     
+                                                                
+                ___ ____ ____ ____ _  _ ____ ____   /           
+                |  |__/ |__| |    |_/  |___ |__/  /            
+                |  |  \ |  | |___ | \_ |___ |  \ .             
+                                                                
+                """
+    print(ascii_art)
     input(f"Press 'Enter' to continue...\n")
     clear_screen()
 
