@@ -56,7 +56,7 @@ def main_menu():
             if new_budget:
                 print(
                     f"New budget created! You have {new_budget.amount:.2f} to spend in "
-                    f"{new_budget.name}\n"
+                    f"{new_budget.name}.\n"
                 )
                 add_budget_sheet(new_budget)
 
@@ -120,6 +120,7 @@ def add_budget_sheet(budget):
     """
     Add a new worksheet to the existing spreadsheet with the budget details
     """
+    print("Adding new budget worksheet...")
     # Ensure sheet name is unique
     sheet_name = budget.name
     existing_sheets = [sheet.title for sheet in SHEET.worksheets()]
@@ -138,8 +139,8 @@ def add_budget_sheet(budget):
     new_sheet.update(
         range_name="A3:D3", values=[["Category", "Expense Name", "Amount"]]
     )
-
-    print(f"New sheet '{sheet_name}' created with budget amount {budget.amount:.2f}\n")
+    clear_screen()
+    print(f"New worksheet '{sheet_name}' created with budget amount {budget.amount:.2f}.\n")
 
 
 def get_expense():
@@ -201,12 +202,12 @@ def select_budget():
                 clear_screen()
             else:
                 input(
-                    f"Invalid budget selected. Press 'Enter' to try again.\n"
+                    f"Invalid budget selected. Press 'Enter' to try again...\n"
                     )
                 clear_screen()
 
         except ValueError:
-            input(f"Invalid input. Press 'Enter' to try again.") 
+            input(f"Invalid input. Press 'Enter' to try again...") 
             clear_screen()
 
 
@@ -270,13 +271,13 @@ def choose_expense_category():
                 clear_screen()
             else:
                 input(
-                    f"Invalid category selected. Press 'Enter' to try again.\n"
+                    f"Invalid category selected. Press 'Enter' to try again...\n"
                 )
                 clear_screen()
 
         except ValueError:
             input(
-                f"Invalid input. Press 'Enter' to try again."
+                f"Invalid input. Press 'Enter' to try again..."
                 )
             clear_screen()
             

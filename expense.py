@@ -7,4 +7,4 @@ class Expense:
 
     def __repr__(self):
         return (f"Expense added: {self.name} for {self.amount:.2f} in "
-                f"{self.category} for {self.budget_name}\n")
+                f"{self.category}  for {self.budget_name}.\n")
