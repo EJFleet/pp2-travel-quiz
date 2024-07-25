@@ -157,6 +157,8 @@ Gitpod - for developing the site.
 
 Heroku - for deploying the app.
 
+[Lucid.app](lucid.app) for creating the flowchart.
+
 [Codebeautify.org](https://codebeautify.org/python-formatter-beautifier) - for formatting the code.
 
 [Code Insitute PEP8 Validator](https://pep8ci.herokuapp.com/#) - for validating the Python code.
@@ -365,6 +367,8 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 ### Code Used
 
 [Amy Richardson's README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) for examples of what to include in the README sections.
+
+[Pixegami's video tutorial](https://www.youtube.com/watch?v=HTD86h69PtE&ab_channel=pixegami) for the method to create a new expense and to display the categories.
 
 Code Institute 'Love Sandwiches' walkthrough project.
 
