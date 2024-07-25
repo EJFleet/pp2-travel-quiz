@@ -31,8 +31,9 @@ Access data from the Google Sheet (read-only) [Google Sheet](https://docs.google
     * [Google Sheets](#google-sheets)
  
 * [Features](#features)
-  * [Functions](#function-definitions)
+  * [Functions](#function-descriptions)
   * [Classes](#class-definitions)
+  * [Error Messages](#error-messages)
   * [Future Implementations](#future-implementations)
   * [Limitations & Future Scalability](#limitations-and-future-scalability)
 
@@ -180,6 +181,107 @@ class Expense:
                 f"{self.category} for {self.budget_name}.\n")
 ```
 The Expense class represents an expense within a budget. It includes details such as category, name, amount, and the associated budget name. The __repr__ method provides a formatted string summarizing the expense details.
+
+### Error Messages
+
+I have included error messages to be displayed if the user inputs a value that is not valid.
+
+#### Invalid Input - Main Menu
+
+- **Description**: If the user enters an invalid input in the main menu, an error message will be displayed instructing them to enter a number between 1 and 4.
+- **Message**: "Invalid input. Please enter a number 1 - 4"
+<details>
+<summary>Invalid input main menu screenshot</summary>
+
+  ![Invalid Input - Main Menu](/documentation/errors/pp3-error-main-menu.png)
+</details>
+
+-----
+
+#### Invalid Budget Amount
+
+- **Description**: When creating a new budget, if the user enters an invalid amount, an error message will be displayed instructing them to enter a positive number with up to two decimal places.
+- **Message**: "Invalid input. Please enter a positive number with up to 2 decimal places."
+<details>
+<summary>Invalid budget amount screenshot</summary>
+
+  ![Invalid Budget Amount](/documentation/errors/pp3-error-budget-amount.png)
+</details>
+
+-----
+
+#### No Budgets Found
+
+- **Description**: If there are no budgets available when the user tries to select one, an error message will inform them to create a budget first.
+- **Message**: "No budgets found. Please create a budget first."
+<details>
+<summary>No budgets found screenshot</summary>
+
+  ![No Budgets Found](/documentation/errors/pp3-error-no-budgets-found.png)
+</details>
+
+-----
+
+#### Invalid Budget Selection
+
+- **Description**: When selecting a budget, if the user enters an invalid number, an error message will be displayed instructing them to enter a valid budget number.
+- **Message**: "Invalid budget. Please enter a number [1 - X]" (where X is the number of available budgets)
+<details>
+<summary>Invalid Budget Selection</summary>
+
+  ![Invalid Budget Selection](/documentation/errors/pp3-error-budget-number.png)
+</details>
+
+-----
+
+#### Invalid Input for Budget
+
+- **Description**: When selecting a budget, if the user enters something that is not a number, an error message will be displayed instructing them to enter a valid input.
+- **Message**: "Invalid input. Please enter a number [1 - X]" (where X is the number of available budgets)
+<details>
+<summary>Invalid budget input screenshot</summary>
+
+  ![Invalid Budget Input](/documentation/errors/pp3-error-budget-input.png)
+</details>
+
+-----
+
+#### Invalid Expense Amount
+
+- **Description**: When entering an expense amount, if the user enters an invalid amount, an error message will be displayed instructing them to enter a positive number with up to two decimal places.
+- **Message**: "Invalid input. Please enter a positive number with up to 2 decimal places."
+<details>
+<summary>Invalid expense amount screenshot</summary>
+
+  ![Invalid Expense Amount](/documentation/errors/pp3-error-expense-amount.png)
+</details>
+
+-----
+
+#### Invalid Category Selection
+
+- **Description**: When choosing an expense category, if the user enters an invalid number, an error message will be displayed instructing them to enter a valid category number.
+- **Message**: "Invalid category. Please enter a number [1 - 5]"
+<details>
+<summary>Invalid category selection screenshot</summary>
+
+  ![Invalid Category Selection](/documentation/errors/pp3-error-category-number.png)
+</details>
+
+-----
+
+#### Invalid Input for Category
+
+- **Description**: When choosing an expense category, if the user enters something that is not a number, an error message will be displayed instructing them to enter a valid input.
+- **Message**: "Invalid input. Please enter a number [1 - 5]"
+<details>
+<summary>Invalid category input screenshot</summary>
+
+  ![Invalid Category Input](/documentation/errors/pp3-error-category-input.png)
+</details>
+
+-----
+
 
 ### Instructions for Using Holiday Budget Tracker
 
