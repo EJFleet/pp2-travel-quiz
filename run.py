@@ -79,7 +79,7 @@ def main_menu():
             clear_screen()
             if new_budget:
                 print(
-                    f"Creating budget for {new_budget.name}..."
+                    f"Creating budget for {new_budget.name}...\n"
                 )
                 add_budget_sheet(new_budget)
                 clear_screen(3)
@@ -150,7 +150,7 @@ def add_budget_sheet(budget):
     """
     Add a new worksheet to the existing spreadsheet with the budget details
     """
-    print("Adding new budget worksheet...")
+
     # Ensure sheet name is unique
     sheet_name = budget.name
     existing_sheets = [sheet.title for sheet in SHEET.worksheets()]
@@ -175,7 +175,7 @@ def add_budget_sheet(budget):
                      values=[["Category", "Expense Name", "Amount"]]
                      )
     print(
-        f"New budget created!  You have {budget.amount:.2f} to spend"
+        f"New budget created!  You have {budget.amount:.2f} to spend "
         f"in {budget.name}.\n"
     )
 
