@@ -4,6 +4,7 @@ import sys
 import re
 import os
 import gspread
+import time
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -43,6 +44,7 @@ def main_menu():
     budget, add an expense, see a budget breakdown, or exit the program
     """
     while True:
+        clear_screen()
         print("What would you like to do?")
         print("  1. Create new holiday budget")
         print("  2. Add an expense")
@@ -58,8 +60,10 @@ def main_menu():
                 print(
                     f"New budget created! You have {new_budget.amount:.2f} "
                     f"to spend in {new_budget.name}.\n"
-                )
+                )                
                 add_budget_sheet(new_budget)
+                clear_screen(3)
+
 
         elif choice == "2":
             clear_screen()
@@ -67,6 +71,7 @@ def main_menu():
             if new_expense:
                 add_expense_to_budget(new_expense)
                 print(new_expense)
+                clear_screen(3)
 
         elif choice == "3":
             clear_screen()
@@ -81,10 +86,12 @@ def main_menu():
             input(f"Invalid input. Press 'Enter' to try again...\n")
 
 
-def clear_screen():
+def clear_screen(delay_sec=None):
     """
     Clears screen
     """
+    if delay_sec is not None:
+        time.sleep(delay_sec)
     os.system("clear")
 
 
