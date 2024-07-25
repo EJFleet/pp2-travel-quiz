@@ -26,9 +26,7 @@ Access data from the Google Sheet (read-only) [Google Sheet](https://docs.google
 
 * [Design](#design)
   * [Planning](#planning)
-    * [Flowchart](#flowchart)
-    * [Google API Setup](#google-api-setup)
-    * [Google Sheets](#google-sheets)
+  * [Imagery](#imagery)
  
 * [Features](#features)
   * [Functions](#function-descriptions)
@@ -112,6 +110,22 @@ Prior to starting any program function code, the relevant Credentials and API se
 #### Google Sheets
 
 Google Sheets was used to store any entered user data and called upon when data was manipulated and updated. It was used to simulate a database, as the user will have no direct interaction with the actual worksheets. All data entry and manipulation takes place within the terminal.  Clear instructions are printed in the terminal instructing the user in how to enter the data, so that it may be displayed correctly on its output, within the scope of this project. 
+
+### Imagery
+
+#### Emojis
+
+I used emojis to add some visual interest to the list of categories and added one to the display after a new budget is created.
+
+![Emojis](/documentation/features/pp3-categories-with-emojis.png)
+
+![Emojis2](/documentation/features/pp3-budget-created.png)
+
+### ASCII Art
+
+I used a [text-to-ASCII converter](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) to make the welcome message more inviting.
+
+![Welcome Art](/documentation/features/pp3-welcome-screen-small.png)
 
 
 ## Features
@@ -574,9 +588,10 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 
 |Bug|Solution|Fixed?|
 |-----|-----|-----|
-|Title and ID of worksheet being printed out rather than just the name| Use selected_budget.title rather than selected_budget | Yes| 
+|Title and ID of worksheet being printed out rather than just the name| Use selected_budget.title rather than selected_budget | Yes | 
 |If user doesn't enter a name for the budget, it is saved as blank rather than 'Unnamed'| Change structure of self.name in Budget class | Yes |
 |Screen not clearing after user presses Enter if error message has displayed| Add clear_screen() to top of main_menu() and add clear_screen(3) to other functions | Yes |
+|User could enter two budgets with same name but program froze if a third was attempted| Changed how sheets were named in the add_budget_sheet function | Yes |
 
 **There were no other known bugs at the time of submitting the project.**
 
