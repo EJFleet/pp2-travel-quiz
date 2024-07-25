@@ -53,6 +53,7 @@ def main_menu():
         if choice == "1":
             clear_screen()
             new_budget = create_new_budget()
+            clear_screen()
             if new_budget:
                 print(
                     f"New budget created! You have {new_budget.amount:.2f} "
@@ -146,7 +147,6 @@ def add_budget_sheet(budget):
                      range_name="A3:D3",
                      values=[["Category", "Expense Name", "Amount"]]
                      )
-    clear_screen()
     print(
         f"New worksheet '{sheet_name}' created with "
         f"budget amount {budget.amount:.2f}.\n"
