@@ -52,7 +52,6 @@ View Holiday Budget Tracker on [Github](https://github.com/EJFleet/pp3_holiday_b
 
 * [Credits](#credits)
   * [Code Used](#code-used)
-  * [Content](#content)
   * [Acknowledgments](#acknowledgments)
 
 ---
@@ -92,8 +91,13 @@ I want to:
 #### Flowchart
 
 Before starting to code, I designed a flowchart with [Lucid](www.lucid.app) to visualise how a user would move through the app and to break down exactly what needed to be done.
+<details>
+<summary>Flowchart</summary>
 
 ![Flowchart](/documentation/pp3-flow-chart.png)
+
+</details>
+
 
 #### Google API Setup
 
@@ -107,23 +111,55 @@ Before starting to code, I designed a flowchart with [Lucid](www.lucid.app) to v
 
 ### Future Implementations
 
+I would add features that would allow the user to do the following:
+* Delete an expense
+* Delete a budget
+* Update a budget total
+* Rename a budget
+* See how much they have spent in a particular category
+* See a warning if they have only a certain amount left in a budget
+* Add in how long the trip will be and calculate a daily budget
+
+
+
 
 ### Accessibility
 
 
 ## Technologies Used
 
+
 ### Languages Used
 
-
+The program was created entirely with Python 3.12.2
 
 ### Frameworks, Libraries & Programs Used
 
-Git - For version control.
+gspread - to add, remove and manipulate data in the connected Google Sheets worksheets.
 
-Github - To save and store the files for the website.
+google.oauth.service_account - for the authentication needed to access the Google APIs for connecting the Service Account with the Credentials function.
 
-Gitpod - For developing the site.
+os - to add the clear_screen function to assist in creating a neater flow.
+
+sys -
+
+re - 
+
+Google Sheets - for storing and retrieving the budgets and expenses.
+
+Google Cloud Platform - for the API for connecting to Google Sheets.
+
+Git - for version control.
+
+Github - to save and store the files for the website.
+
+Gitpod - for developing the site.
+
+Heroku - for deploying the app.
+
+[Codebeautify.org](https://codebeautify.org/python-formatter-beautifier) - for formatting the code.
+
+[Code Insitute PEP8 Validator](https://pep8ci.herokuapp.com/#) - for validating the Python code.
 
 [Shields.io](https://shields.io/) for adding badges to the readme.
 
@@ -289,7 +325,29 @@ The site was tested on the following devices:
 
 The code was validated using PEP8 standards to ensure readability and maintainability.
 
-![Python pass]()
+<details>
+
+<summary> Validation for run.py </summary>
+
+![run.py validation](/documentation/testing/pp3-linter-1.png)
+
+</details>
+
+<details>
+
+<summary> Validation for expense.py </summary>
+
+![expense.py validation](/documentation/testing/pp3-linter-expense.png)
+
+</details>
+
+<details>
+
+<summary> Validation for budget.py </summary>
+
+![budget.py validation](/documentation/testing/pp3-linter-budget.png)
+
+</details>
 
 
 ### Solved Bugs
@@ -312,8 +370,6 @@ Code Institute 'Love Sandwiches' walkthrough project.
 
 Code Institute's sample README for ideas of what to put in each section.
  
-### Content
-
   
 ### Acknowledgments
 
