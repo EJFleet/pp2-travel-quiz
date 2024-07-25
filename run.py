@@ -60,10 +60,9 @@ def main_menu():
                 print(
                     f"New budget created! You have {new_budget.amount:.2f} "
                     f"to spend in {new_budget.name}.\n"
-                )                
+                )
                 add_budget_sheet(new_budget)
                 clear_screen(3)
-
 
         elif choice == "2":
             clear_screen()
@@ -78,6 +77,7 @@ def main_menu():
             selected_budget = select_budget()
             if selected_budget:
                 budget_breakdown(selected_budget)
+                clear_screen(3)
 
         elif choice == "4":
             exit_program()
