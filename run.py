@@ -159,7 +159,7 @@ def add_budget_sheet(budget):
 
     count = 2
     while sheet_name in existing_sheets:
-        sheet_name = f"{budget.name} 2"
+        sheet_name = f"{budget.name} {count}"
         count += 1
 
     # Add new budget worksheet to spreadsheet
