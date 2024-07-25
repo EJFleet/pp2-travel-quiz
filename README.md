@@ -4,12 +4,15 @@
 
 For my third portfolio project, I created an app to track the budget and spending for a user's holiday. 
 
-![Screenshot of welcome page of Holiday Budget Tracker]()
+![Screenshot of welcome page of Holiday Budget Tracker](/documentation/testing/pp3-welcome-screen.png)
 
 Visit the deployed site here: [Holiday Budget Tracker](https://pp3-holiday-budget-tracker-e4ed60461481.herokuapp.com/)
+
 View Holiday Budget Tracker on [Github](https://github.com/EJFleet/pp3_holiday_budget_tracker)
 
-![GitHub last commit]()![GitHub language count]()![GitHub top language]()![W3C Validation]()
+![GitHub last commit](https://img.shields.io/github/last-commit/ejfleet/pp3_holiday_budget_tracker)
+![GitHub language count](https://img.shields.io/github/languages/count/ejfleet/pp3_holiday_budget_tracker)
+![GitHub top language](https://img.shields.io/github/languages/top/ejfleet/pp3_holiday_budget_tracker)
 
 
 ---
