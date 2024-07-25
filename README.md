@@ -10,6 +10,8 @@ Visit the deployed site here: [Holiday Budget Tracker](https://pp3-holiday-budge
 
 View Holiday Budget Tracker on [Github](https://github.com/EJFleet/pp3_holiday_budget_tracker)
 
+Access data from the Google Sheet (read-only) [Google Sheet](https://docs.google.com/spreadsheets/d/18XqLjhsr8qBJOFHBoCdBUixmuBwP4GbWJ5870NgJcqY/edit?usp=sharing)
+
 ![GitHub last commit](https://img.shields.io/github/last-commit/ejfleet/pp3_holiday_budget_tracker)
 ![GitHub language count](https://img.shields.io/github/languages/count/ejfleet/pp3_holiday_budget_tracker)
 ![GitHub top language](https://img.shields.io/github/languages/top/ejfleet/pp3_holiday_budget_tracker)
@@ -29,7 +31,7 @@ View Holiday Budget Tracker on [Github](https://github.com/EJFleet/pp3_holiday_b
     * [Google Sheets](#google-sheets)
  
 * [Features](#features)
-  * 
+  * [Functions](#function-definitions)
   * [Future Implementations](#future-implementations)
   * [Accessibility](#accessibility)
 
@@ -93,7 +95,8 @@ I want to:
 
 #### Flowchart
 
-Before starting to code, I designed a flowchart with [Lucid](www.lucid.app) to visualise how a user would move through the app and to break down exactly what needed to be done.
+Before starting to code, I designed a flowchart with [Lucid](www.lucid.app) to visualise how a user would move through the app and to break down exactly what needed to be done.  
+During the development process, the design of the app became more streamlined and effective than initially envisoned in the flowchart.
 <details>
 <summary>Flowchart</summary>
 
@@ -101,15 +104,53 @@ Before starting to code, I designed a flowchart with [Lucid](www.lucid.app) to v
 
 </details>
 
-
 #### Google API Setup
 
+Prior to starting any program function code, the relevant Credentials and API set up needed to take place. This process is detailed in the [Deployment & Local Development](#deployment--local-development) section. Security was an important factor with the connecting of a Google Account to access the Google Sheets worksheet. Steps were followed carefully to ensure that no important files like, CREDS.json, were pushed to the cloud for the public to view. Guidance for the setting up of these authorisations and credentials, was provided through the Code Institute's Full Stack Software Development course.
+
+
 #### Google Sheets
+
+Google Sheets was used to store any entered user data and called upon when data was manipulated and updated. It was used to simulate a database, as the user will have no direct interaction with the actual worksheets. All data entry and manipulation takes place within the terminal.  Clear instructions are printed in the terminal instructing the user in how to enter the data, so that it may be displayed correctly on its output, within the scope of this project. 
 
 
 ## Features
 
+### Function Definitions
 
+### Function Descriptions
+
+* **`main()`**: The entry point of the program. It displays a welcome message and directs the user to the main menu for further interactions.
+
+* **`welcome_message()`**: Displays a welcome message to the user and prompts them to press 'Enter' to continue. Clears the screen before and after the message.
+
+* **`main_menu()`**: Displays the main menu with options to create a new holiday budget, add an expense, view a budget breakdown, or exit the program. Processes user input to navigate to the corresponding functionality.
+
+* **`clear_screen()`**: Clears the terminal screen to provide a clean interface for user interaction.
+
+* **`is_valid_amount(amount)`**: Validates if the input amount is a positive number with up to two decimal places using a regular expression.
+
+* **`create_new_budget()`**: Prompts the user to enter a destination and budget amount, validates the input, and creates a new budget object if valid.
+
+* **`add_budget_sheet(budget)`**: Adds a new worksheet to the existing spreadsheet with the budget details and ensures the sheet name is unique.
+
+* **`get_expense()`**: Prompts the user to enter expense details such as category, name, and amount, and returns an expense object.
+
+* **`select_budget()`**: Displays a list of existing budgets and prompts the user to select one. Validates the selection and returns the corresponding budget worksheet.
+
+* **`get_expense_amount()`**: Prompts the user to enter an expense amount, validates the input, and returns the amount if valid.
+
+* **`choose_expense_category()`**: Displays a list of expense categories and prompts the user to select one. Validates the selection and returns the chosen category.
+
+* **`add_expense_to_budget(expense)`**: Updates the selected budget worksheet with a new expense row.
+
+* **`sum_expenses(budget_worksheet)`**: Calculates the total amount spent from a particular budget by summing up all expenses listed in the worksheet.
+
+* **`calculate_remaining_budget(budget_name, budget_amount)`**: Calculates the remaining budget amount by subtracting the total expenses from the initial budget amount.
+
+* **`budget_breakdown(selected_budget)`**: Displays a breakdown of the selected budget, showing the total spent and the remaining budget amount.
+
+* **`exit_program()`**: Prompts the user to either restart the program or exit. Clears the screen and terminates the program if the user chooses to exit.
 
 
 ### Future Implementations
@@ -138,37 +179,21 @@ The program was created entirely with Python 3.12.2
 
 ### Frameworks, Libraries & Programs Used
 
-gspread - to add, remove and manipulate data in the connected Google Sheets worksheets.
-
-google.oauth.service_account - for the authentication needed to access the Google APIs for connecting the Service Account with the Credentials function.
-
-os - to add the clear_screen function to assist in creating a neater flow.
-
-sys -
-
-re - 
-
-Google Sheets - for storing and retrieving the budgets and expenses.
-
-Google Cloud Platform - for the API for connecting to Google Sheets.
-
-Git - for version control.
-
-Github - to save and store the files for the website.
-
-Gitpod - for developing the site.
-
-Heroku - for deploying the app.
-
-[Lucid.app](lucid.app) for creating the flowchart.
-
-[Codebeautify.org](https://codebeautify.org/python-formatter-beautifier) - for formatting the code.
-
-[Code Insitute PEP8 Validator](https://pep8ci.herokuapp.com/#) - for validating the Python code.
-
-[Shields.io](https://shields.io/) for adding badges to the readme.
-
-[Beautifier.io](https://beautifier.io/) to format the site's code.
+* gspread - to add, remove and manipulate data in the connected Google Sheets worksheets.
+* google.oauth.service_account - for the authentication needed to access the Google APIs for connecting the Service Account with the Credentials function.
+* os - to add the clear_screen function to assist in creating a neater flow.
+* sys - for exiting the program.
+* re - for checking the format of the user input for budget amount and expense amount.
+* Google Sheets - for storing and retrieving the budgets and expenses.
+* Google Cloud Platform - for the API for connecting to Google Sheets.
+* Git - for version control.
+* Github - to save and store the files for the website.
+* Gitpod - for developing the site.
+* Heroku - for deploying the app.
+* [Lucid.app](lucid.app) for creating the flowchart.
+* [Codebeautify.org](https://codebeautify.org/python-formatter-beautifier) - for formatting the code.
+* [Code Insitute PEP8 Validator](https://pep8ci.herokuapp.com/#) - for validating the Python code.
+* [Shields.io](https://shields.io/) for adding badges to the readme.
 
 
 ##  Deployment & Local Development    
@@ -314,16 +339,6 @@ The website was tested on:
 * Safari
 * Firefox
 * Chrome for Android
-
-### Responsiveness
-
-The site was tested on the following devices: 
-* Samsung S9
-* Samsung Galaxy S22
-* Google Pixel 6
-* iPad Pro 2020
-* 15.6" Laptop
-* Desktop PC
 
 
 ### Code Validation
