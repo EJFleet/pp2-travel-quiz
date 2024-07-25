@@ -32,6 +32,7 @@ Access data from the Google Sheet (read-only) [Google Sheet](https://docs.google
  
 * [Features](#features)
   * [Functions](#function-definitions)
+  * [Classes](#class-definitions)
   * [Future Implementations](#future-implementations)
   * [Limitations & Future Scalability](#limitations-and-future-scalability)
 
@@ -50,7 +51,6 @@ Access data from the Google Sheet (read-only) [Google Sheet](https://docs.google
 
 * [Testing](#testing)
   * [Functionality](#functionality)
-  * [Browser Compatibility](#browser-compatibility)
   * [Code Validation](#code-validation)
   * [Solved Bugs](#solved-bugs)
 
@@ -148,6 +148,38 @@ Google Sheets was used to store any entered user data and called upon when data 
 * **`budget_breakdown(selected_budget)`**: Displays a breakdown of the selected budget, showing the total spent and the remaining budget amount.
 
 * **`exit_program()`**: Prompts the user to either restart the program or exit. Clears the screen and terminates the program if the user chooses to exit.
+
+### Class Definitions
+
+#### Budget Class
+
+```python
+class Budget:
+    def __init__(self, name=None, amount=0):
+        self.name = name if name else "Unnamed"
+        self.amount = round(amount, 2)
+
+    def __repr__(self):
+        return f"Budget: {self.name}, Total: {self.amount}"
+```
+
+The Budget class represents a budget for a holiday. It initializes with a name and amount, defaulting to "Unnamed" and 0, respectively, if not provided. The amount is rounded to two decimal places. The __repr__ method returns a string representation of the budget details.
+
+#### Expense Class
+
+```python
+class Expense:
+    def __init__(self, category, name, amount, budget_name):
+        self.category = category
+        self.name = name
+        self.amount = amount
+        self.budget_name = budget_name
+
+    def __repr__(self):
+        return (f"Expense added: {self.name} for {self.amount:.2f} in "
+                f"{self.category} for {self.budget_name}.\n")
+```
+The Expense class represents an expense within a budget. It includes details such as category, name, amount, and the associated budget name. The __repr__ method provides a formatted string summarizing the expense details.
 
 ### Instructions for Using Holiday Budget Tracker
 
@@ -394,16 +426,6 @@ Extensive testing was performed to ensure that the program ran correctly.
 ![Manual Testing Checklist](/documentation/testing/pp3-holiday-budget-tracker-manual-testing.png)
 
 
-### Browser Compatibility
-
-The website was tested on:
-* Chrome
-* Edge
-* Safari
-* Firefox
-* Chrome for Android
-
-
 ### Code Validation
 
 The code was validated using PEP8 standards to ensure readability and maintainability.
@@ -438,24 +460,20 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 |Bug|Solution|Fixed?|
 |-----|-----|-----|
 |Title and ID of worksheet being printed out rather than just the name| Use selected_budget.title rather than selected_budget | Yes| 
-|If user doesn't enter a name for the budget, it is saved as blank rather than 'Unnamed'| ? | No |
-|Screen not clearing after user presses Enter if error message has displayed| ? | No |
+|If user doesn't enter a name for the budget, it is saved as blank rather than 'Unnamed'| Change structure of self.name in Budget class | Yes |
+|Screen not clearing after user presses Enter if error message has displayed| Add clear_screen() to top of main_menu() and add clear_screen(3) to other functions | Yes |
 
-
+There were no other known bugs at the time of submitting the project.
 
 ## Credits
 
 ### Code Used
 
-[Amy Richardson's README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) and [Monika Mak's README](https://github.com/monika-mak/budget_planner_PP3/blob/main/README.md) for examples of what to include in the README sections.
-
-[Pixegami's video tutorial](https://www.youtube.com/watch?v=HTD86h69PtE&ab_channel=pixegami) for the method to create a new expense and to display the categories.
-
-Code Institute 'Love Sandwiches' walkthrough project.
-
-Code Institute's sample README for ideas of what to put in each section.
-
-[Real Python](https://realpython.com/if-name-main-python/) - explanation and code to use for Name-Main
+- [Amy Richardson's README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) and [Monika Mak's README](https://github.com/monika-mak/budget_planner_PP3/blob/main/README.md) for examples of what to include in the README sections.
+- [Pixegami's video tutorial](https://www.youtube.com/watch?v=HTD86h69PtE&ab_channel=pixegami) for the method to create a new expense and to display the categories.
+- Code Institute 'Love Sandwiches' walkthrough project.
+- Code Institute's sample README for ideas of what to put in each section.
+- [Real Python](https://realpython.com/if-name-main-python/) - explanation and code to use for Name-Main
  
   
 ### Acknowledgments
