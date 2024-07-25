@@ -52,9 +52,11 @@ def welcome_message():
 
                 """
     print(ascii_art)
-    input(
-        f"Press 'Enter' to get started with creating a budget,"
-        f"adding an expense or viewing a budget breakdown...\n")
+    input("""
+            Press 'Enter' to get started with creating a budget, 
+            adding an expense, or viewing a budget breakdown...
+          """
+      )
     clear_screen()
 
 
