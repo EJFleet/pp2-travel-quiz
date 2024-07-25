@@ -55,7 +55,8 @@ def welcome_message():
     input("""
             Press 'Enter' to get started with creating a budget,
             adding an expense, or viewing a budget breakdown...
-          """)
+          """
+          )
     clear_screen()
 
 
@@ -79,7 +80,8 @@ def main_menu():
             clear_screen()
             if new_budget:
                 print(
-                    f"Creating budget for {new_budget.name}...\n"
+                    f"You have entered {new_budget.amount:.2f} "
+                    f"to be spent in {new_budget.name}...\n"
                 )
                 add_budget_sheet(new_budget)
                 clear_screen(3)
@@ -150,7 +152,7 @@ def add_budget_sheet(budget):
     """
     Add a new worksheet to the existing spreadsheet with the budget details
     """
-
+    print("Adding new budget...\n")
     # Ensure sheet name is unique
     sheet_name = budget.name
     existing_sheets = [sheet.title for sheet in SHEET.worksheets()]
@@ -175,8 +177,8 @@ def add_budget_sheet(budget):
                      values=[["Category", "Expense Name", "Amount"]]
                      )
     print(
-        f"New budget created!  You have {budget.amount:.2f} to spend "
-        f"in {budget.name}.\n"
+        f"New budget '{sheet_name}' created with "
+        f"{budget.amount:.2f} to spend 💸\n"
     )
 
 
