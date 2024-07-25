@@ -102,7 +102,7 @@ def create_new_budget():
     Create a new budget with new name and new total
     """
     clear_screen()
-    budget_name = input("Enter your destination: \n")
+    budget_name = input("Enter your destination: \n").strip()
 
     while True:
         budget_amount_input = input("Enter total of budget: \n")
