@@ -33,7 +33,7 @@ Access data from the Google Sheet (read-only) [Google Sheet](https://docs.google
 * [Features](#features)
   * [Functions](#function-definitions)
   * [Future Implementations](#future-implementations)
-  * [Accessibility](#accessibility)
+  * [Limitations & Future Scalability](#limitations-and-future-scalability)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -51,7 +51,6 @@ Access data from the Google Sheet (read-only) [Google Sheet](https://docs.google
 * [Testing](#testing)
   * [Functionality](#functionality)
   * [Browser Compatibility](#browser-compatibility)
-  * [Responsiveness](#responsiveness)
   * [Code Validation](#code-validation)
   * [Solved Bugs](#solved-bugs)
 
@@ -116,8 +115,6 @@ Google Sheets was used to store any entered user data and called upon when data 
 
 ## Features
 
-### Function Definitions
-
 ### Function Descriptions
 
 * **`main()`**: The entry point of the program. It displays a welcome message and directs the user to the main menu for further interactions.
@@ -164,10 +161,11 @@ I would add features that would allow the user to do the following:
 * See a warning if they have only a certain amount left in a budget
 * Add in how long the trip will be and calculate a daily budget
 
+### Limitations and Future Scalability
 
+Currently, the app uses Google Sheets to store budget and expense data. While this is convenient for small-scale projects, it has limitations that can affect scalability, such as row and column limits, performance issues with large datasets, and limitations on concurrent users.
 
-
-### Accessibility
+To support larger-scale applications, I would expect to migrate to a more robust database solution.
 
 
 ## Technologies Used
@@ -190,6 +188,7 @@ The program was created entirely with Python 3.12.2
 * Github - to save and store the files for the website.
 * Gitpod - for developing the site.
 * Heroku - for deploying the app.
+* ChatGPT - I used this when I needed answers to get unstuck and to help find bugs that I couldn't find myself.
 * [Lucid.app](lucid.app) for creating the flowchart.
 * [Codebeautify.org](https://codebeautify.org/python-formatter-beautifier) - for formatting the code.
 * [Code Insitute PEP8 Validator](https://pep8ci.herokuapp.com/#) - for validating the Python code.
@@ -384,13 +383,15 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 
 ### Code Used
 
-[Amy Richardson's README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) for examples of what to include in the README sections.
+[Amy Richardson's README](https://github.com/kera-cudmore/Bully-Book-Club/tree/main) and [Monika Mak's README](https://github.com/monika-mak/budget_planner_PP3/blob/main/README.md) for examples of what to include in the README sections.
 
 [Pixegami's video tutorial](https://www.youtube.com/watch?v=HTD86h69PtE&ab_channel=pixegami) for the method to create a new expense and to display the categories.
 
 Code Institute 'Love Sandwiches' walkthrough project.
 
 Code Institute's sample README for ideas of what to put in each section.
+
+[Real Python](https://realpython.com/if-name-main-python/) - explanation and code to use for Name-Main
  
   
 ### Acknowledgments
