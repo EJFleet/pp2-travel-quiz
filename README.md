@@ -4,7 +4,7 @@
 
 For my third portfolio project, I created an app to track the budget and spending for a user's holiday. 
 
-![Screenshot of welcome page of Holiday Budget Tracker](/documentation/testing/pp3-welcome-screen.png)
+![Screenshot of welcome page of Holiday Budget Tracker](/documentation/features/pp3-welcome-screen.png)
 
 Visit the deployed site here: [Holiday Budget Tracker](https://pp3-holiday-budget-tracker-e4ed60461481.herokuapp.com/)
 
@@ -99,7 +99,7 @@ During the development process, the design of the app became more streamlined an
 <details>
 <summary>Flowchart</summary>
 
-![Flowchart](/documentation/pp3-flow-chart.png)
+![Flowchart](/documentation/features/pp3-flow-chart.png)
 
 </details>
 
@@ -148,6 +148,70 @@ Google Sheets was used to store any entered user data and called upon when data 
 * **`budget_breakdown(selected_budget)`**: Displays a breakdown of the selected budget, showing the total spent and the remaining budget amount.
 
 * **`exit_program()`**: Prompts the user to either restart the program or exit. Clears the screen and terminates the program if the user chooses to exit.
+
+### Instructions for Using Holiday Budget Tracker
+
+1. **Open the Application**:
+
+   - Visit the deployed site: [Holiday Budget Tracker](https://pp3-holiday-budget-tracker-e4ed60461481.herokuapp.com/)
+
+2. **Welcome Screen**:
+
+   - You will see a welcome message. Press 'Enter' to continue.
+
+   ![Welcome Screen](/documentation/features/pp3-welcome-screen.png)
+
+3. **Main Menu**:
+
+   - Choose an option by entering the corresponding number:
+
+     1. Create new holiday budget
+     2. Add an expense
+     3. See budget breakdown
+     4. Exit program
+
+   ![Main Menu](/documentation/features/pp3-main-menu.png)
+
+4. **Create New Holiday Budget**:
+
+   - Enter the destination name.
+   - Enter the total budget amount. Ensure it is a positive number with up to two decimal places.
+   - A confirmation message will be displayed with the budget details.
+
+   ![Create Budget](/documentation/features/pp3-budget-created.png)
+
+   - A new blank worksheet in the Google Sheets document will be created
+
+   ![Google Sheets](/documentation/features/pp3-blank-budget.png)
+
+5. **Add an Expense**:
+
+   - Select a budget from the list.
+   - Choose an expense category.
+   - Enter the name of the expense.
+   - Enter the expense amount. Ensure it is a positive number with up to two decimal places.
+   - A confirmation message will be displayed with the expense details.
+
+   ![Add Expense](/documentation/features/pp3-expense-created.png)
+
+   - The new expense will be added to the worksheet
+
+   ![Added Expense](/documentation/features/pp3-expense-added.png)
+
+6. **See Budget Breakdown**:
+
+   - Select a budget from the list.
+   - The total spent and remaining budget will be displayed.
+
+   ![Budget Breakdown](/documentation/features/pp3-budget-breakdown.png)
+
+7. **Exit Program**:
+
+   - Choose option 4 from the main menu to exit the program.
+   - A goodbye message will be displayed with an option to restart the program.
+
+   ![Exit Program](/documentation/features/pp3-exit-screen.png)
+
 
 
 ### Future Implementations
