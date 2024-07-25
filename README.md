@@ -187,11 +187,13 @@ The Expense class represents an expense within a budget. It includes details suc
 
    - Visit the deployed site: [Holiday Budget Tracker](https://pp3-holiday-budget-tracker-e4ed60461481.herokuapp.com/)
 
+
 2. **Welcome Screen**:
 
    - You will see a welcome message. Press 'Enter' to continue.
 
-   ![Welcome Screen](/documentation/features/pp3-welcome-screen.png)
+     ![Welcome Screen](/documentation/features/pp3-welcome-screen.png)
+
 
 3. **Main Menu**:
 
@@ -202,7 +204,8 @@ The Expense class represents an expense within a budget. It includes details suc
      3. See budget breakdown
      4. Exit program
 
-   ![Main Menu](/documentation/features/pp3-main-menu.png)
+     ![Main Menu](/documentation/features/pp3-main-menu.png)
+
 
 4. **Create New Holiday Budget**:
 
@@ -210,11 +213,12 @@ The Expense class represents an expense within a budget. It includes details suc
    - Enter the total budget amount. Ensure it is a positive number with up to two decimal places.
    - A confirmation message will be displayed with the budget details.
 
-   ![Create Budget](/documentation/features/pp3-budget-created.png)
+     ![Create Budget](/documentation/features/pp3-budget-created.png)
 
-   - A new blank worksheet in the Google Sheets document will be created
+   - A new blank worksheet in the Google Sheets document will be created.
 
-   ![Google Sheets](/documentation/features/pp3-blank-budget.png)
+   - ![Google Sheets](/documentation/features/pp3-blank-budget.png)
+
 
 5. **Add an Expense**:
 
@@ -224,25 +228,27 @@ The Expense class represents an expense within a budget. It includes details suc
    - Enter the expense amount. Ensure it is a positive number with up to two decimal places.
    - A confirmation message will be displayed with the expense details.
 
-   ![Add Expense](/documentation/features/pp3-expense-created.png)
+     ![Add Expense](/documentation/features/pp3-expense-created.png)
 
-   - The new expense will be added to the worksheet
+   - The new expense will be added to the worksheet.
 
-   ![Added Expense](/documentation/features/pp3-expense-added.png)
+     ![Added Expense](/documentation/features/pp3-expense-added.png)
+
 
 6. **See Budget Breakdown**:
 
    - Select a budget from the list.
    - The total spent and remaining budget will be displayed.
 
-   ![Budget Breakdown](/documentation/features/pp3-budget-breakdown.png)
+     ![Budget Breakdown](/documentation/features/pp3-budget-breakdown.png)
+
 
 7. **Exit Program**:
 
    - Choose option 4 from the main menu to exit the program.
    - A goodbye message will be displayed with an option to restart the program.
 
-   ![Exit Program](/documentation/features/pp3-exit-screen.png)
+     ![Exit Program](/documentation/features/pp3-exit-screen.png)
 
 
 
@@ -269,7 +275,7 @@ To support larger-scale applications, I would expect to migrate to a more robust
 
 ### Languages Used
 
-The program was created entirely with Python 3.12.2
+The program was created with Python 3.12.2.
 
 ### Frameworks, Libraries & Programs Used
 
@@ -278,6 +284,7 @@ The program was created entirely with Python 3.12.2
 * os - to add the clear_screen function to assist in creating a neater flow.
 * sys - for exiting the program.
 * re - for checking the format of the user input for budget amount and expense amount.
+* time - for adding a delay to the clear_screen function
 * Google Sheets - for storing and retrieving the budgets and expenses.
 * Google Cloud Platform - for the API for connecting to Google Sheets.
 * Git - for version control.
@@ -289,17 +296,19 @@ The program was created entirely with Python 3.12.2
 * [Codebeautify.org](https://codebeautify.org/python-formatter-beautifier) - for formatting the code.
 * [Code Insitute PEP8 Validator](https://pep8ci.herokuapp.com/#) - for validating the Python code.
 * [Shields.io](https://shields.io/) for adding badges to the readme.
-
+* [Text to ASCII by patorjk.com](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) for the welcome message.
 
 ##  Deployment & Local Development    
   
 The below steps to creating and setting up a new Python workspace and API credentials has been guided by and adapted from the [Code Institute's](https://codeinstitute.net/ie/) Python walkthrough project 'Love Sandwiches'. Please check each step is relevant to your project needs and change the data entered to suit it.
 
 ### Creating a new repository 
-<details open>
-<summary>Steps to create a new repository.</summary>  
 
-The [Code Institute's Python Essential Template](https://github.com/Code-Institute-Org/python-essentials-template) was used to create a terminal for my Python file to generate it's output. To use this template, please follow these steps:
+The [Code Institute's Python Essential Template](https://github.com/Code-Institute-Org/python-essentials-template) was used to create a terminal for my Python file to generate its output. To use this template, please take the following steps.
+
+<details>
+<summary>Steps to create a new repository</summary>  
+
 1. Log in to [GitHub](https://github.com/) or create a new account.
 2. Navigate to the above Python template repository.
 3. Click '**Use this template**' -> '**Create a new repository**'.
@@ -311,14 +320,16 @@ The [Code Institute's Python Essential Template](https://github.com/Code-Institu
 -----  
 
 ### Activating the Google Drive & Sheets API
+
+To access the data in a Google Sheets worksheet using Python code, an API is required. Please take the following steps to set up your APIs.
+
 <details>
 <summary>Steps to activate the APIs</summary>
-To access the data in a Google Sheets worksheet using Python code, an API is required. Please follow these steps to set up your APIs:  
 
 1. Navigate to the [Google Cloud Platform](https://cloud.google.com), using an email address/Google account that is registered to you alone.
-2. In the Google Cloud Platform Dashboard, create a new project by clicking on the '**Select a Project**' button and choosing the '**New Project**' option. Give your new project a name and click '**Create**'. (Your access credentials are unique to each project, so create a new project for every project that you build.) 
-3. Click '**Select Project**' in the blue banner to bring you to your project page.
-4. Select '**APIs and Services**' from the left side menu, then select '**Library**'.
+2. Click on 'Dashboard' which will bring you to your Google Cloud Platform Dashboard. Create a new project by clicking on the project selection menu in the top left corner and choosing the '**New Project**' option. Give your new project a name and click '**Create**'. (Your access credentials are unique to each project, so create a new project for every project that you build.) 
+3. Use the project selector menu to bring you to your project page.
+4. Click the hamburger icon at the top left of the page.  Select '**APIs and Services**' from the left side menu, then select '**Library**'.
 5. Use the search bar to search for the two APIs needed for this project, Google Drive API and Google Sheets API. One at time, choose the APIs from the search and click '**Enable**' on their main page. Follow the below steps for the Google Drive API, but only click '**Enable**' for the Google Sheets API. There is no need to download credentials again for it.
 6. On the API overview page, click '**Create Credentials**' to generate some credentials which will allow us access to our Google Drive from our Python code.
 7. Fill out the forms fields and dropdown menus with the information that is relevant to your project. For mine, I chose **Google Drive API -> Application Data -> No, I'm not using them** (regarding using Kubernetes, App Engine etc)
@@ -332,11 +343,12 @@ To access the data in a Google Sheets worksheet using Python code, an API is req
 -----  
 
 ### Setting up the Gitpod workspace for the APIs
+
 <details>
 <summary>Steps for workspace setup</summary>
   
 1. In the new Gitpod workspace you've created with the Python Essentials template, click and drag the json file that you created in the above steps, into the Gitpod workspace.  
-2. Rename it to `CREDS.json`, if you wish, and open the file. Find the client_email address you previously entered, copy it without the quotes around it.
+2. Rename it to `creds.json`, if you wish, and open the file. Find the client_email address, copy it without the quotes around it.
 3. In the Google Sheets file that you have created for this project, click the '**Share**' button and paste the email address into the field, choose '**Editor**', untick '**Notify People**' and click '**Share**'. This allows our project access to the spreadsheet.
 4. To ensure the private credentials that you have created do not make their way to the cloud for others to view, add the `creds.json` file to your `gitignore` file before you commit any changes to your repository, and push them to the cloud.
 5. Use the command `git status` to check that the `creds.json` file is not staged to be committed.
@@ -346,65 +358,62 @@ To access the data in a Google Sheets worksheet using Python code, an API is req
 -----  
 
 ### Initial Code for connecting to our API with Python
+
 <details>
 <summary>Steps to including the Python/API connection code</summary>
 
-1. The code needed to ensure your APIs connect correctly can be found at the top of the `run.py` file connected to this project. It is important that you remember to pass the exact same name as your spreadsheet to the `SHEET = GSPREAD_CLIENT.opn('your-filename-here')` code, or else gspread will throw an error.
+1. The code needed to ensure your APIs connect correctly can be found at the top of the `run.py` file connected to this project. It is important that you remember to pass the exact same name as your spreadsheet to the `SHEET = GSPREAD_CLIENT.open('your-filename-here')` code, or else gspread will throw an error.
 2. The command `pip3 install gspread google-auth` is needed to install the gspread package for handling the worksheet data and the google-auth package to allow access to the Google Sheets account via the Credentials we downloaded earlier. Use the above command in the Gitbash terminal to install.
 3. Please refer to the `run.py` file for the import, SCOPE, CREDS, SCOPED CREDS, GSPREAD CLIENT, SHEET code that is needed to connect the APIs and change any data that is personal to your project.
 
 </details>
   
------  
+-----
 
 ### Deploying to Heroku  
 
 Heroku has been used to deploy this project as Python is used as a back-end language. To allow for accurate testing, I deployed the project to Heroku early on using Automatic Deployment to update the program everytime new code was pushed to my GitHub repository. Here are the steps that I followed to set my project up, guidance was provided by the [Code Institute's](https://codeinstitute.net/ie/) 'Love Sandwiches' project.     
 
+<details>
+<summary>Steps for deploying to Heroku</summary>
+
 1. Log in to [Heroku](https://id.heroku.com/login) or create an account if you are a new user.
 2. Once logged in, in the Heroku Dashboard, navigate to the '**New**' button in the top, right corner, and select '**Create New App**'.
-<details>
-<summary>Create new app</summary>
-<img src ="documentation/readme/heroku_1.png">
-</details>  
-
 3. Enter an app name and choose your region. Click '**Create App**'.
-<details>
-<summary>Enter app name</summary>
-<img src ="documentation/readme/heroku_2.png">
-</details>  
-  
 4. In the Deploy tab, click on the '**Settings**', reach the '**Config Vars**' section and click on '**Reveal Config Vars**'. Here you will enter KEY:VALUE pairs for the app to run successfully. In KEY enter `CREDS`, in VALUE, paste in the text content of your `CREDS.json` file. Select '**Add**'.  
 5. Repeat this process with a KEY:VALUE pair of `PORT` and `8000`.
 6. In the Settings tab, in the Buildpack section, click '**Add Buildpack**', located near the bottom, right of the refreshed screen. One at a time, choose the '**Python**' pack, save changes, then choose the '**NodeJS**' buildpack and save changes. **NB: the Python buildpack _must_ be above the NodeJS buildpack.**
-  
-<details>
-<summary>Choose Buildpacks</summary>
-<img src ="documentation/readme/heroku_bp.png">
-</details>  
-  
 7. Go to the '**Deploy**' tab and choose GitHub as the Deployment method.
 8. Search for the repository name, select the branch that you would like to build from, and connect it via the '**Connect**' button.
 9. Choose from '**Automatic**' or '**Manual**' deployment options, I chose the 'Automatic' deployment method. Click '**Deploy Branch**'.
 10. Once the waiting period for the app to build has finished, click the '**View**' link to bring you to your newly deployed site.
 
+</details> 
   
------  
+-----
 
 ### Forking the GitHub Repository
 
-A copy of the original repository can be made through GitHub. Please follow the below steps to fork this repository:  
+A copy of the original repository can be made through GitHub. Please follow the below steps to fork this repository.
+
+<details>
+<summary>Steps for forking GitHub Repository</summary>
 
 1. Navigate to GitHub and log in.  
 2. Once logged in, navigate to this repository using this link [Holiday Budget Tracker Repository](https://github.com/EJFleet/pp3_holiday_budget_tracker).
 3. Above the repository file section and to the top, right of the page is the '**Fork**' button, click on this to make a fork of this repository.
 4. You should now have access to a forked copy of this repository in your Github account.
 
------  
+</details>
+
+-----
 
 ### Clone this GitHub Repository
 
-A local clone of this repository can be made on GitHub. Please follow the below steps:
+A local clone of this repository can be made on GitHub. Please follow the below steps.
+
+<details>
+<summary>Steps for cloning GitHub Repository</summary>
 
 1. Navigate to GitHub and log in.
 2. The [Holiday Budget Tracker Repositiory](https://github.com/EJFleet/pp3_holiday_budget_tracker) can be found at this location.
@@ -414,6 +423,10 @@ A local clone of this repository can be made on GitHub. Please follow the below 
 6. Change the current working directory to the location you want the cloned directory to be made.
 7. Type `git clone` and paste in the copied URL from step 4.
 8. Press '**Enter**' for the local clone to be created.
+
+</details>
+
+-----
 
 ## Testing
 
@@ -463,7 +476,7 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 |If user doesn't enter a name for the budget, it is saved as blank rather than 'Unnamed'| Change structure of self.name in Budget class | Yes |
 |Screen not clearing after user presses Enter if error message has displayed| Add clear_screen() to top of main_menu() and add clear_screen(3) to other functions | Yes |
 
-There were no other known bugs at the time of submitting the project.
+**There were no other known bugs at the time of submitting the project.**
 
 ## Credits
 
@@ -481,3 +494,4 @@ There were no other known bugs at the time of submitting the project.
 * My mentor Brian Macharia for his help and clear explanations of what needed to be done
 * Amy Richardson for facilitating our weekly standups and being a font of information and encouragement
 * My friends and family for testing the project on their devices and offering words of encouragement
+* My dog Po for making me take breaks from my desk
