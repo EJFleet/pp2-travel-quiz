@@ -77,7 +77,9 @@ def main_menu():
             exit_program()
 
         else:
-            print("Invalid input. Please enter a number 1 - 4\n")
+            input(
+                f"Invalid input. Press 'Enter' to try again...\n"
+                )
 
 
 def clear_screen():
@@ -207,7 +209,9 @@ def select_budget():
                 clear_screen()
 
         except ValueError:
-            input(f"Invalid input. Press 'Enter' to try again...") 
+            input(
+                f"Invalid input. Press 'Enter' to try again...\n"
+                ) 
             clear_screen()
 
 
