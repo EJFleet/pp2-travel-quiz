@@ -258,7 +258,11 @@ A local clone of this repository can be made on GitHub. Please follow the below 
 
 ### Functionality
 
+Extensive testing was performed to ensure that the program ran correctly.
 
+#### Manual Testing
+
+![Manual Testing Checklist](/documentation/testing/pp3-holiday-budget-tracker-manual-testing.png)
 
 
 ### Browser Compatibility
