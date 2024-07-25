@@ -55,8 +55,8 @@ def main_menu():
             new_budget = create_new_budget()
             if new_budget:
                 print(
-                    f"New budget created! You have {new_budget.amount:.2f} to spend in "
-                    f"{new_budget.name}.\n"
+                    f"New budget created! You have {new_budget.amount:.2f} "
+                    f"to spend in {new_budget.name}.\n"
                 )
                 add_budget_sheet(new_budget)
 
@@ -77,9 +77,7 @@ def main_menu():
             exit_program()
 
         else:
-            input(
-                f"Invalid input. Press 'Enter' to try again...\n"
-                )
+            input(f"Invalid input. Press 'Enter' to try again...\n")
 
 
 def clear_screen():
@@ -91,7 +89,8 @@ def clear_screen():
 
 def is_valid_amount(amount):
     """
-    Checks is the number entered is a positive number with up to two decimal places
+    Checks is the number entered is a positive number
+    with up to two decimal places
     """
     pattern = r"^\d+(\.\d{1,2})?$"
     return re.match(pattern, amount) is not None
@@ -114,7 +113,8 @@ def create_new_budget():
 
         else:
             print(
-                "Invalid input.  Please enter a positive number with up to 2 decimal places.\n"
+                f"Invalid input.  Please enter a positive number "
+                f"with up to 2 decimal places.\n"
             )
 
 
@@ -136,13 +136,21 @@ def add_budget_sheet(budget):
     new_sheet = SHEET.add_worksheet(title=sheet_name, rows=100, cols=20)
 
     # Populate new sheet with budget details
-    new_sheet.update(range_name="A1:B1", values=[["Destination:", budget.name]])
-    new_sheet.update(range_name="A2:B2", values=[["Budget Total:", budget.amount]])
+    new_sheet.update(range_name="A1:B1",
+                     values=[["Destination:", budget.name]]
+                     )
+    new_sheet.update(range_name="A2:B2",
+                     values=[["Budget Total:", budget.amount]]
+                     )
     new_sheet.update(
-        range_name="A3:D3", values=[["Category", "Expense Name", "Amount"]]
-    )
+                     range_name="A3:D3",
+                     values=[["Category", "Expense Name", "Amount"]]
+                     )
     clear_screen()
-    print(f"New worksheet '{sheet_name}' created with budget amount {budget.amount:.2f}.\n")
+    print(
+        f"New worksheet '{sheet_name}' created with "
+        f"budget amount {budget.amount:.2f}.\n"
+    )
 
 
 def get_expense():
@@ -205,13 +213,11 @@ def select_budget():
             else:
                 input(
                     f"Invalid budget selected. Press 'Enter' to try again...\n"
-                    )
+                     )
                 clear_screen()
 
         except ValueError:
-            input(
-                f"Invalid input. Press 'Enter' to try again...\n"
-                ) 
+            input(f"Invalid input. Press 'Enter' to try again...\n")
             clear_screen()
 
 
@@ -229,20 +235,18 @@ def get_expense_amount():
                 clear_screen()
             else:
                 print(
-                    "Invalid input.  Please enter a positive number with up to 2 decimal places.\n"
+                    "Invalid input.  Please enter a positive number "
+                    f"with up to 2 decimal places.\n"
                 )
-                input(
-                    f"Press 'Enter' to try again."
-                    )
+                input(f"Press 'Enter' to try again.")
                 clear_screen()
 
         except ValueError:
             print(
-                "Invalid input.  Please enter a positive number with up to 2 decimal places.\n"
+                "Invalid input.  Please enter a positive number "
+                f"with up to 2 decimal places.\n"
             )
-            input(
-                f"Press 'Enter' to try agin."
-            )
+            input(f"Press 'Enter' to try agin.")
             clear_screen()
 
 
@@ -259,13 +263,15 @@ def choose_expense_category():
     ]
 
     while True:
-        
+
         print("Select an expense category: ")
         for i, category_name in enumerate(expense_categories):
             print(f"  {i + 1}. {category_name}")
 
         value_range = f"[1 - {len(expense_categories)}]"
-        selected_category_input = input(f"\nEnter a category number {value_range}: \n")
+        selected_category_input = input(
+                                        f"\nEnter a category number "
+                                        f"{value_range}: \n")
 
         try:
             selected_category_index = int(selected_category_input) - 1
@@ -275,16 +281,14 @@ def choose_expense_category():
                 clear_screen()
             else:
                 input(
-                    f"Invalid category selected. Press 'Enter' to try again...\n"
-                )
+                      f"Invalid category selected. Press 'Enter' "
+                      f"to try again...\n")
                 clear_screen()
 
         except ValueError:
-            input(
-                f"Invalid input. Press 'Enter' to try again..."
-                )
+            input(f"Invalid input. Press 'Enter' to try again...")
             clear_screen()
-            
+
 
 def add_expense_to_budget(expense):
     """
@@ -303,7 +307,8 @@ def sum_expenses(budget_worksheet):
     """
     expense_column = budget_worksheet.col_values(3)[3:]
     total_expenses = sum(
-        float(expense) for expense in expense_column if is_valid_amount(expense)
+        float(expense) for expense in expense_column
+        if is_valid_amount(expense)
     )
     return total_expenses
 
@@ -320,7 +325,8 @@ def calculate_remaining_budget(budget_name, budget_amount):
 
 def budget_breakdown(selected_budget):
     """
-    Calculate and display how much the user has spent and how much they have left
+    Calculate and display how much the user
+    has spent and how much they have left
     """
     clear_screen()
     print("Calculating budget...")
@@ -330,16 +336,12 @@ def budget_breakdown(selected_budget):
         selected_budget.title, selected_budget_amount
     )
     clear_screen()
-    print(
-        f"Budget Breakdown:"
-        )
+    print(f"Budget Breakdown:")
     print(
         f"You have spent {total_expenses:.2f} of {selected_budget_amount:.2f} "
         f"from your {selected_budget.title} budget."
-        )
-    print(
-        f"You have {remaining_budget:.2f} left.\n"
-        )
+    )
+    print(f"You have {remaining_budget:.2f} left.\n")
 
 
 def exit_program():
@@ -349,12 +351,14 @@ def exit_program():
     clear_screen()
     print("Thank you for using Holiday Budget Tracker! Bon Voyage! ✈️\n")
     exit_input = input(
-        f"To restart program press Y, otherwise press any key to end program:  \n"
+                        f"To restart program press Y, "
+                        f"otherwise press any key to end program:  \n"
     )
     if exit_input.lower() == "y":
         welcome_message()
     else:
         sys.exit()
+
 
 if __name__ == "__main__":
     main()
