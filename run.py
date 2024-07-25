@@ -79,8 +79,7 @@ def main_menu():
 
         else:
             input(f"Invalid input. Press 'Enter' to try again...\n")
-
-
+            
 def clear_screen():
     """
     Clears screen

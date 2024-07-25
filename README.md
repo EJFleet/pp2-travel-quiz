@@ -258,8 +258,7 @@ A local clone of this repository can be made on GitHub. Please follow the below 
 
 ### Functionality
 
-|Test Label|Test Action|Expected Outcome|Test Outcome|
-|-----|-----|-----|-----|
+
 
 
 ### Browser Compatibility
@@ -294,6 +293,9 @@ The code was validated using PEP8 standards to ensure readability and maintainab
 |Bug|Solution|Fixed?|
 |-----|-----|-----|
 |Title and ID of worksheet being printed out rather than just the name| Use selected_budget.title rather than selected_budget | Yes| 
+|If user doesn't enter a name for the budget, it is saved as blank rather than 'Unnamed'| ? | No |
+|Screen not clearing after user presses Enter if error message has displayed| ? | No |
+
 
 
 ## Credits
